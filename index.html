@@ -1,0 +1,2659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Year 6 English • Unit 2: Life in the Past (pp. 14–23)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Fredoka', 'Noto Sans SC', sans-serif;
+      background: linear-gradient(135deg, #FEF3C7 0%, #E0F2FE 50%, #F3E8FF 100%);
+      min-height: 100vh;
+      user-select: none;
+      overflow-x: hidden;
+    }
+
+    /* 主立体卡片容器 */
+    .panel-card {
+      background: rgba(255, 255, 255, 0.97);
+      border: 4px solid #0284C7;
+      box-shadow: 0 10px 0 #0369A1, 0 18px 28px rgba(3, 105, 161, 0.16);
+      border-radius: 28px;
+    }
+
+    /* 闪卡容器 */
+    .flashcard-box {
+      background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%);
+      border: 4px solid #F59E0B;
+      box-shadow: 0 8px 0 #D97706;
+      border-radius: 24px;
+      transition: all 0.25s ease;
+    }
+    .flashcard-box.is-grammar {
+      background: linear-gradient(180deg, #F5F3FF 0%, #EDE9FE 100%);
+      border-color: #8B5CF6;
+      box-shadow: 0 8px 0 #6D28D9;
+    }
+
+    /* 3D 按钮特效 */
+    .btn-3d {
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      top: 0;
+    }
+    .btn-3d:active:not(:disabled) {
+      top: 4px;
+      box-shadow: 0 1px 0 currentColor !important;
+    }
+    .btn-3d:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+      filter: grayscale(40%);
+    }
+
+    /* 选项按钮 */
+    .option-btn {
+      background: #FFFFFF;
+      border: 3px solid #7DD3FC;
+      box-shadow: 0 5px 0 #38BDF8;
+      color: #0C4A6E;
+    }
+    .option-btn:hover:not(:disabled) {
+      background: #F0F9FF;
+      border-color: #0284C7;
+      transform: translateY(-2px);
+    }
+
+    /* 弹跳出现动画 */
+    @keyframes popIn {
+      0% { transform: scale(0.85); opacity: 0; }
+      75% { transform: scale(1.03); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: popIn 0.28s ease-out forwards;
+    }
+
+    /* 答错抖动 */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-7px); }
+      40%, 80% { transform: translateX(7px); }
+    }
+    .animate-shake {
+      animation: shake 0.38s ease-in-out;
+    }
+
+    /* 句子挖空槽 */
+    .blank-slot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 118px;
+      padding: 2px 12px;
+      margin: 0 4px;
+      border-bottom: 4px dashed #F59E0B;
+      background-color: #FEF3C7;
+      border-radius: 10px;
+      color: #B45309;
+      font-weight: 800;
+      transition: all 0.25s ease;
+    }
+    .blank-slot.filled-right {
+      border-bottom: 4px solid #10B981;
+      background-color: #D1FAE5;
+      color: #065F46;
+      transform: scale(1.04);
+    }
+    .blank-slot.filled-wrong {
+      border-bottom: 4px solid #EF4444;
+      background-color: #FEE2E2;
+      color: #991B1B;
+    }
+
+    /* 较难英文字旁边的华语括弧注释 */
+    .hint-cn {
+      color: #4338CA;
+      font-size: 0.78em;
+      font-weight: 700;
+      background: #EEF2FF;
+      border: 1px solid #C7D2FE;
+      padding: 1px 6px;
+      border-radius: 8px;
+      margin-left: 2px;
+      display: inline-block;
+    }
+
+    /* 倒计时最后 8 秒红框紧张呼吸闪烁 */
+    @keyframes urgentBorder {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); border-color: #EF4444; }
+      50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); border-color: #B91C1C; }
+    }
+    .tension-border {
+      animation: urgentBorder 0.55s infinite;
+    }
+  </style>
+</head>
+<body class="p-3 sm:p-5 flex flex-col items-center">
+
+  <!-- ==================== 顶部导航与音效控制栏 ==================== -->
+  <header class="w-full max-w-7xl flex flex-wrap items-center justify-between gap-2 mb-4 px-1">
+    <div class="flex items-center gap-2.5 bg-white/95 px-4 py-2 rounded-full shadow-md border-2 border-amber-400">
+      <span class="text-2xl">🕯️</span>
+      <div>
+        <h1 class="text-sm sm:text-lg font-black text-amber-950 leading-tight">Year 6 English • Unit 2: Life in the Past (pp. 14–23)</h1>
+        <p class="text-xs text-amber-700 font-bold">左栏 Flashcard (5秒/张) ➔ 右栏三步闭环闯关 (读句5秒 • 作答30秒 • 100%掌握)</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <!-- 背景音乐开关 -->
+      <button id="bgmBtn" onclick="toggleBGM()" class="btn-3d bg-amber-100 border-2 border-amber-400 shadow-[0_4px_0_#D97706] text-amber-900 font-extrabold px-3.5 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-1.5">
+        <span id="bgmIcon">🎵</span>
+        <span id="bgmText">背景音乐开</span>
+      </button>
+
+      <!-- 返回主页 -->
+      <button id="homeBtn" onclick="returnToMenu()" class="hidden btn-3d bg-rose-100 border-2 border-rose-400 shadow-[0_4px_0_#E11D48] text-rose-800 font-extrabold px-3.5 py-2 rounded-2xl text-xs sm:text-sm">
+        🏠 选择关卡
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== 1. 学生登录与关卡选择主页 ==================== -->
+  <section id="menuScreen" class="w-full max-w-5xl panel-card p-6 sm:p-8 text-center my-auto">
+    <div class="text-5xl sm:text-6xl mb-2">🏰🕯️⛵📜🕰️</div>
+    <span class="inline-block bg-amber-100 text-amber-900 border border-amber-300 px-3.5 py-1 rounded-full text-xs sm:text-sm font-black mb-2">
+      六年级英文 Year 6 • Unit 2 (70 个核心生词 + Unit Focus 两大语法)
+    </span>
+    <h2 class="text-2xl sm:text-4xl font-black text-sky-950 mb-3">Unit 2: Life in the Past 闪卡与三步闭环闯关</h2>
+
+    <!-- 学生资料输入 -->
+    <div class="bg-sky-50/90 border-2 border-sky-200 rounded-3xl p-4 max-w-lg mx-auto mb-5 text-left">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-black text-sky-900 mb-1">🧑‍🎓 学生姓名 (Student Name)：</label>
+          <input id="studentNameInput" type="text" placeholder="例如：Wong Xin Yi 黄欣怡" class="w-full px-3.5 py-2 rounded-xl border-2 border-sky-300 font-bold text-gray-800 focus:outline-none focus:border-sky-600 bg-white text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-black text-sky-900 mb-1">🏫 班级 (Class)：</label>
+          <select id="studentClassInput" class="w-full px-3 py-2 rounded-xl border-2 border-sky-300 font-bold text-gray-800 focus:outline-none focus:border-sky-600 bg-white text-sm">
+            <option value="6M">6M</option>
+            <option value="6K">6K</option>
+            <option value="6B">6B</option>
+            <option value="6J">6J</option>
+            <option value="6A">6A</option>
+            <option value="6C">6C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关卡选择网格 -->
+    <div class="text-left max-w-4xl mx-auto mb-5">
+      <div class="text-xs sm:text-sm font-black text-sky-900 mb-2.5 text-center">
+        👇 请选择要挑战的关卡（左边必须逐张看满 5 秒闪卡，右边才会解锁开始三步测验）：
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <button onclick="startStage('stage1')" class="btn-3d bg-amber-50 hover:bg-amber-100 border-3 border-amber-400 shadow-[0_5px_0_#D97706] rounded-2xl p-4 text-left">
+          <span class="bg-amber-500 text-white text-xs font-black px-2 py-0.5 rounded-md">Stage 1 • 18 词</span>
+          <div class="text-base font-black text-amber-950 mt-1">📖 生词 #1 – #18</div>
+          <p class="text-xs font-bold text-amber-800 mt-1">burn down 烧毁 ➔ river 河 (课本第 14–16 页)</p>
+        </button>
+
+        <button onclick="startStage('stage2')" class="btn-3d bg-sky-50 hover:bg-sky-100 border-3 border-sky-400 shadow-[0_5px_0_#0284C7] rounded-2xl p-4 text-left">
+          <span class="bg-sky-600 text-white text-xs font-black px-2 py-0.5 rounded-md">Stage 2 • 18 词</span>
+          <div class="text-base font-black text-sky-950 mt-1">🎨 生词 #19 – #36</div>
+          <p class="text-xs font-bold text-sky-800 mt-1">pleased 满意的 ➔ carpet 地毯 (课本第 16–18 页)</p>
+        </button>
+
+        <button onclick="startStage('stage3')" class="btn-3d bg-emerald-50 hover:bg-emerald-100 border-3 border-emerald-400 shadow-[0_5px_0_#059669] rounded-2xl p-4 text-left">
+          <span class="bg-emerald-600 text-white text-xs font-black px-2 py-0.5 rounded-md">Stage 3 • 18 词</span>
+          <div class="text-base font-black text-emerald-950 mt-1">🏡 生词 #37 – #54</div>
+          <p class="text-xs font-bold text-emerald-800 mt-1">cottage 小屋 ➔ trip 旅程 (课本第 18–20 页)</p>
+        </button>
+
+        <button onclick="startStage('stage4')" class="btn-3d bg-indigo-50 hover:bg-indigo-100 border-3 border-indigo-400 shadow-[0_5px_0_#4F46E5] rounded-2xl p-4 text-left">
+          <span class="bg-indigo-600 text-white text-xs font-black px-2 py-0.5 rounded-md">Stage 4 • 16 词 + 语法</span>
+          <div class="text-base font-black text-indigo-950 mt-1">💻 生词 #55 – #70 + Grammar</div>
+          <p class="text-xs font-bold text-indigo-800 mt-1">repeat 重复 ➔ chopping 切碎 + 语法精选 (第 20–23 页)</p>
+        </button>
+
+        <button onclick="startStage('grammar')" class="btn-3d bg-purple-50 hover:bg-purple-100 border-3 border-purple-400 shadow-[0_5px_0_#7C3AED] rounded-2xl p-4 text-left">
+          <span class="bg-purple-600 text-white text-xs font-black px-2 py-0.5 rounded-md">Stage 5 • 语法专练</span>
+          <div class="text-base font-black text-purple-950 mt-1">🧠 Unit Focus: 语法全掌握</div>
+          <p class="text-xs font-bold text-purple-800 mt-1">动词变名词 (-er/-or) & 'Used to' 肯定/否定/疑问句 (第 22–23 页)</p>
+        </button>
+
+        <button onclick="startStage('quick')" class="btn-3d bg-gradient-to-r from-rose-500 to-orange-500 border-3 border-rose-800 shadow-[0_5px_0_#9F1239] rounded-2xl p-4 text-left text-white">
+          <span class="bg-white/25 text-white text-xs font-black px-2 py-0.5 rounded-md">Stage 6 • 综合抽测 12 题</span>
+          <div class="text-base font-black mt-1">⚡ 随堂综合挑战 (词汇 + 语法)</div>
+          <p class="text-xs font-bold text-rose-100 mt-1">随机抽取 10 个核心生词 + 2 道 Unit Focus 语法重点</p>
+        </button>
+      </div>
+    </div>
+
+    <!-- 核心游戏机制提示条 -->
+    <div class="bg-slate-100 border-2 border-slate-200 rounded-2xl p-3 max-w-4xl mx-auto text-xs font-bold text-slate-700 flex flex-wrap justify-center gap-x-5 gap-y-1.5">
+      <span>🔒 <strong>左闪卡防跳过：</strong>每张看满 5 秒才解锁下一张</span>
+      <span>👀 <strong>5 秒读题锁：</strong>审题 5 秒后开启 30 秒倒计时</span>
+      <span>🔄 <strong>三步闭环 + 100%掌握：</strong>填英文 ➔ 选华语 ➔ 选英文意思（错题自动排入重练直到全对！）</span>
+      <span>🎁 <strong>每答对 5 题：</strong>解锁 1 个 Bonus 技能卡！</span>
+    </div>
+  </section>
+
+  <!-- ==================== 2. 左右分屏学习与闯关工作区 ==================== -->
+  <main id="gameWorkspace" class="hidden w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+
+    <!-- 左栏 (5列)：Flashcard 记忆闪卡区 -->
+    <section class="lg:col-span-5 panel-card p-5 sm:p-6 flex flex-col justify-between border-amber-500 shadow-[0_10px_0_#D97706]">
+      <div>
+        <!-- 左栏顶栏 -->
+        <div class="flex items-center justify-between gap-2 mb-3 pb-3 border-b-2 border-amber-200">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🗂️</span>
+            <div>
+              <h2 class="text-base sm:text-lg font-black text-amber-950">左边：Flashcard 记忆闪卡</h2>
+              <p class="text-xs font-bold text-amber-700">每张至少学习 5 秒，全部看完解锁右边测验</p>
+            </div>
+          </div>
+          <span id="fcCounterBadge" class="bg-amber-200 text-amber-950 font-black px-3 py-1 rounded-full text-xs sm:text-sm">
+            1 / 18
+          </span>
+        </div>
+
+        <!-- 闪卡进度条 -->
+        <div class="w-full h-3 bg-amber-100 rounded-full overflow-hidden border border-amber-300 mb-4">
+          <div id="fcProgressBar" class="h-full bg-amber-500 transition-all duration-300" style="width: 5%;"></div>
+        </div>
+
+        <!-- 闪卡内容卡片 -->
+        <div id="flashcardCard" class="flashcard-box p-4 sm:p-5 text-center">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span id="fcNumTag" class="bg-amber-500 text-white text-xs font-black px-2.5 py-1 rounded-lg">#1</span>
+            <span id="fcTypeTag" class="bg-white/90 border border-amber-300 text-amber-900 text-xs font-extrabold px-2.5 py-1 rounded-lg">📖 Vocabulary 词汇</span>
+          </div>
+
+          <!-- 英文单词/词组 (含原形括弧标注) -->
+          <div id="fcMainTerm" class="text-2xl sm:text-3xl font-black text-sky-950 mt-1 mb-1">
+            burn down
+          </div>
+
+          <!-- 词性/语法说明 -->
+          <div id="fcMetaInfo" class="text-xs font-extrabold text-purple-800 bg-purple-100/90 border border-purple-300 rounded-xl px-3 py-1 mb-2 inline-block">
+          </div>
+
+          <!-- 华语意思 -->
+          <div class="my-1.5">
+            <span id="fcChineseMeaning" class="inline-block bg-rose-100 border-2 border-rose-300 text-rose-800 text-lg sm:text-xl font-black px-4 py-1 rounded-2xl">
+              烧毁
+            </span>
+          </div>
+
+          <!-- 英文意思 (Step 3 对应) -->
+          <div class="text-xs sm:text-sm font-bold text-slate-700 bg-white/80 border border-amber-200 rounded-xl px-3 py-1.5 mb-2">
+            <span class="text-sky-700 font-black">🇬🇧 英文意思：</span>
+            <span id="fcEnglishDef">To destroy a building or place completely by fire.</span>
+          </div>
+
+          <!-- 记忆小妙招 (帮助记住华语意思的方法) -->
+          <div class="bg-amber-100/95 border-2 border-amber-300 rounded-2xl p-3 text-left my-2">
+            <div class="text-xs font-black text-amber-900 mb-0.5 flex items-center gap-1">
+              <span>💡</span>
+              <span id="fcTipHeader">记忆华语意思小妙招 (Memory Method)：</span>
+            </div>
+            <p id="fcMemoryTip" class="text-xs sm:text-sm font-bold text-amber-950 leading-relaxed">
+              burn 是“燃烧”，down 是“倒塌下来”，大火把整座村庄烧得倒塌下来，就是“烧毁”！
+            </p>
+          </div>
+
+          <!-- 课本例句 (较难字附华语括弧注释) -->
+          <div class="bg-white/95 border-2 border-sky-200 rounded-2xl p-3 text-left">
+            <div class="text-xs font-black text-sky-700 mb-0.5">📖 课本例句 (Sentence)：</div>
+            <p id="fcSentence" class="text-sm sm:text-base font-bold text-gray-800 leading-relaxed">
+              The enemies (敌人) threatened (威胁) to <span class="text-sky-700 underline font-black">burn down</span> the entire (整个) village.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 闪卡底部翻页与 5 秒强制倒计时按钮 -->
+      <div class="mt-4 pt-3 border-t-2 border-amber-100">
+        <div class="flex items-center justify-between gap-3">
+          <button id="fcPrevBtn" onclick="prevFlashcard()" class="btn-3d bg-gray-200 border-2 border-gray-400 shadow-[0_4px_0_#9CA3AF] text-gray-800 font-extrabold px-4 py-3 rounded-2xl text-sm">
+            ⬅️ 上一张
+          </button>
+
+          <button id="fcNextBtn" onclick="nextFlashcard()" disabled class="flex-1 btn-3d bg-emerald-500 border-2 border-emerald-700 shadow-[0_4px_0_#047857] text-white font-black px-4 py-3 rounded-2xl text-sm sm:text-base">
+            <span id="fcNextLabel">⏳ 请仔细学习 (5s)</span>
+          </button>
+        </div>
+
+        <div id="fcUnlockedHint" class="hidden mt-2.5 bg-emerald-100 border-2 border-emerald-400 text-emerald-900 rounded-2xl p-2 text-center text-xs font-black animate-pop">
+          🎉 本关闪卡已全部学完，右边测验已解锁！随时可翻阅左边闪卡复习。
+        </div>
+      </div>
+    </section>
+
+    <!-- 右栏 (7列)：Quiz 三步闭环闯关区 -->
+    <section id="quizPanel" class="lg:col-span-7 panel-card p-5 sm:p-7 relative flex flex-col justify-between overflow-hidden">
+
+      <!-- 严格防跳过锁定遮罩层 -->
+      <div id="quizLockCover" class="absolute inset-0 bg-slate-900/86 backdrop-blur-xs z-20 flex flex-col items-center justify-center p-6 text-center text-white">
+        <div class="bg-white/15 border-2 border-white/30 rounded-3xl p-6 sm:p-8 max-w-md backdrop-blur-md">
+          <div class="text-6xl mb-3 animate-bounce">🔒</div>
+          <h3 class="text-2xl font-black text-amber-300 mb-2">测验区暂未解锁！</h3>
+          <p class="text-sm sm:text-base font-bold text-sky-100 leading-relaxed mb-4">
+            不能跳过左边的 Flashcard 直接完成测验哦！<br/>
+            请先认真看完左边本关全部 <strong id="lockTotalCardsText">18</strong> 张闪卡（每张至少 5 秒），学完后右边测验会自动开启。
+          </p>
+          <div class="bg-black/45 rounded-2xl px-4 py-2.5 text-sm font-black text-emerald-300 border border-emerald-400/40">
+            闪卡学习进度：<span id="lockProgressText">0 / 18</span> 张已完成
+          </div>
+        </div>
+      </div>
+
+      <!-- 测验上部内容 -->
+      <div>
+        <!-- 顶栏：100% 掌握进度 + 30秒计时器 + 积分与连胜 -->
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 pb-3 border-b-2 border-sky-100">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="bg-emerald-100 text-emerald-950 font-black px-2.5 py-1 rounded-xl border border-emerald-300 text-xs">
+              🎯 已完全掌握：<span id="masteredCountText" class="text-emerald-600 text-sm">0</span> / <span id="totalGoalText">18</span>
+            </span>
+            <span id="requeueBadge" class="hidden bg-amber-100 text-amber-900 font-black px-2.5 py-1 rounded-xl border border-amber-400 text-xs animate-pulse">
+              🔁 错题重练队列：<span id="requeueCountText">0</span>
+            </span>
+          </div>
+
+          <!-- 5秒读题锁 / 30秒作答倒计时器 -->
+          <div class="flex-1 min-w-[165px] max-w-xs mx-auto">
+            <div class="flex justify-between items-center text-xs font-black mb-1">
+              <span id="timerPhaseLabel" class="text-amber-700">👀 仔细阅读句子...</span>
+              <span id="timerValueText" class="text-sm sm:text-base text-amber-800 font-black">5s</span>
+            </div>
+            <div class="w-full h-3.5 bg-gray-200 rounded-full overflow-hidden border border-gray-300 p-0.5">
+              <div id="timerProgressBar" class="h-full bg-amber-500 rounded-full transition-all duration-200" style="width: 100%;"></div>
+            </div>
+          </div>
+
+          <!-- 得分与连胜计数器 -->
+          <div class="flex items-center gap-2 bg-slate-100 px-3 py-1 rounded-2xl border border-slate-300 text-xs font-black">
+            <span class="text-indigo-700">⭐ <span id="scorePointsText">0</span>分</span>
+            <span class="text-gray-300">|</span>
+            <span class="text-orange-600" title="每连续答对 5 题获得 Bonus 技能！">🔥 <span id="streakCountText">0</span>/5</span>
+          </div>
+        </div>
+
+        <!-- 🎒 Bonus 技能背包栏 -->
+        <div class="bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border-2 border-amber-300 rounded-2xl px-3 py-2 mb-3 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5 text-xs font-black text-amber-900">
+            <span>🎁</span>
+            <span>Bonus 技能栏 <span class="text-[11px] font-bold text-amber-700">(每全对5题解锁1个)</span>：</span>
+            <span id="doubleScoreIndicator" class="hidden bg-rose-500 text-white text-[11px] px-2 py-0.5 rounded-full animate-bounce">
+              ✨ 2x 双倍积分生效中 (<span id="doubleChargesLeft">0</span>题)
+            </span>
+          </div>
+          <div id="bonusInventoryBar" class="flex flex-wrap items-center gap-1.5">
+            <span class="text-xs font-bold text-gray-400 italic">暂无技能，全对 5 题即可抽取！</span>
+          </div>
+        </div>
+
+        <!-- 三步作答进度胶囊条 -->
+        <div class="grid grid-cols-3 gap-1.5 mb-3 text-center">
+          <div id="pillStep1" class="px-2 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-sky-600 text-white shadow-sm">
+            1️⃣ 选英文字填入句子
+          </div>
+          <div id="pillStep2" class="px-2 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-gray-200 text-gray-500">
+            2️⃣ 选出华语意思
+          </div>
+          <div id="pillStep3" class="px-2 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-gray-200 text-gray-500">
+            3️⃣ 选出英文意思
+          </div>
+        </div>
+
+        <!-- 5 秒读题锁提示横幅 -->
+        <div id="readWaitBanner" class="bg-amber-50 border-2 border-amber-300 rounded-2xl px-4 py-2 mb-3 text-center">
+          <span id="readWaitText" class="text-xs sm:text-sm font-black text-amber-900">
+            ⏳ 作答前请先仔细阅读句子和括弧提示（5 秒后解锁选项）...
+          </span>
+        </div>
+
+        <!-- 题目展示框 -->
+        <div class="bg-sky-50/90 border-2 border-sky-200 rounded-3xl p-4 sm:p-5 mb-4 text-center relative">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span id="promptHelperNote" class="text-xs font-bold text-indigo-700">💡 括弧内为较难英文字的华语意思，协助你理解句子：</span>
+            <span id="mistakeFlagBadge" class="hidden bg-rose-100 text-rose-800 border border-rose-300 text-[11px] font-black px-2 py-0.5 rounded-lg">
+              ⚠️ 本题曾出错，请继续完成所有步骤，稍后将重练
+            </span>
+          </div>
+          <div id="quizQuestionBox" class="text-lg sm:text-2xl font-black text-slate-800 leading-relaxed">
+            The enemies (敌人) threatened (威胁) to <span class="blank-slot">______</span> the entire (整个) village.
+          </div>
+        </div>
+
+        <!-- 4 个选项按钮区 -->
+        <div id="quizOptionsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        </div>
+      </div>
+
+      <!-- 底部反馈栏 -->
+      <div id="quizFeedbackArea" class="mt-4 pt-3 border-t-2 border-sky-100 text-center min-h-[44px] flex items-center justify-center">
+        <span class="text-xs sm:text-sm font-bold text-gray-500">请先阅读句子 5 秒，倒计时结束后立即开启 30 秒作答 ⏱️</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 3. 每答对 5 题 Bonus 技能奖励抽取弹窗 ==================== -->
+  <div id="bonusModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-40 flex items-center justify-center p-4">
+    <div class="panel-card max-w-xl w-full p-6 sm:p-7 text-center border-amber-500 shadow-[0_10px_0_#D97706] animate-pop">
+      <div class="text-5xl sm:text-6xl mb-2">🎁🎉🌟</div>
+      <span class="inline-block bg-amber-100 text-amber-900 border border-amber-300 px-3 py-1 rounded-full text-xs font-black mb-1">
+        太厉害了！累计全对达 5 题倍数！
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-black text-sky-950">恭喜获得 Bonus 技能奖励！</h2>
+      <p class="text-xs sm:text-sm font-bold text-gray-600 mt-1 mb-4">请从下方 4 种强力道具中任选 1 个放入你的技能背包（在答题时随时点击使用）：</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+        <button onclick="claimBonusSkill('time')" class="btn-3d bg-sky-50 hover:bg-sky-100 border-3 border-sky-400 shadow-[0_4px_0_#0284C7] rounded-2xl p-3.5">
+          <div class="text-lg font-black text-sky-950">⏰ 延长回答时间</div>
+          <p class="text-xs font-bold text-sky-800 mt-1">在答题倒计时中点击使用，立即增加 <strong>+15 秒</strong> 作答时间！</p>
+        </button>
+
+        <button onclick="claimBonusSkill('hint')" class="btn-3d bg-amber-50 hover:bg-amber-100 border-3 border-amber-400 shadow-[0_4px_0_#D97706] rounded-2xl p-3.5">
+          <div class="text-lg font-black text-amber-950">💡 智能提示卡</div>
+          <p class="text-xs font-bold text-amber-800 mt-1">在当前步骤点击使用，自动帮你<strong>排除 2 个错误选项</strong>！</p>
+        </button>
+
+        <button onclick="claimBonusSkill('double')" class="btn-3d bg-rose-50 hover:bg-rose-100 border-3 border-rose-400 shadow-[0_4px_0_#E11D48] rounded-2xl p-3.5">
+          <div class="text-lg font-black text-rose-950">✨ 分数翻倍卡</div>
+          <p class="text-xs font-bold text-rose-800 mt-1">使用后接下来 <strong>3 道全对题目</strong> 获得的积分全部 <strong>2 倍翻倍</strong>！</p>
+        </button>
+
+        <button onclick="claimBonusSkill('shield')" class="btn-3d bg-emerald-50 hover:bg-emerald-100 border-3 border-emerald-400 shadow-[0_4px_0_#059669] rounded-2xl p-3.5">
+          <div class="text-lg font-black text-emerald-950">🔄 错题护盾 / 重答卡</div>
+          <p class="text-xs font-bold text-emerald-800 mt-1">答错时点击可<strong>免除重练惩罚</strong>，或直接消除 1 道错题队列！</p>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 4. 100% 掌握通关成绩单弹窗 ==================== -->
+  <div id="summaryModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-40 flex items-center justify-center p-4">
+    <div class="panel-card max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 text-center animate-pop">
+      <div class="text-6xl mb-2">🏆👑🎊</div>
+      <span class="inline-block bg-emerald-100 text-emerald-800 border border-emerald-300 px-3 py-1 rounded-full text-xs font-black mb-1">
+        100% Mastery Achieved • 全部题目完全掌握！
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-black text-sky-950">恭喜达到 100% 掌握率！</h2>
+      <p id="summaryStudentMeta" class="text-sm font-extrabold text-indigo-700 mt-1">Year 6 English • Unit 2: Life in the Past</p>
+
+      <div class="grid grid-cols-3 gap-3 my-5">
+        <div class="bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-3">
+          <div class="text-xs font-black text-emerald-700">最终掌握率</div>
+          <div class="text-2xl sm:text-3xl font-black text-emerald-600">100%</div>
+        </div>
+        <div class="bg-sky-50 border-2 border-sky-300 rounded-2xl p-3">
+          <div class="text-xs font-black text-sky-700">最终总积分</div>
+          <div id="sumTotalScore" class="text-2xl sm:text-3xl font-black text-sky-600">0</div>
+        </div>
+        <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-3">
+          <div class="text-xs font-black text-amber-700">总作答轮次</div>
+          <div id="sumTotalAttempts" class="text-2xl sm:text-3xl font-black text-amber-600">0</div>
+        </div>
+      </div>
+
+      <div class="text-left mb-5">
+        <div class="text-xs font-black text-gray-600 mb-1.5">📋 完整作答与错题攻克记录：</div>
+        <div id="sumReviewList" class="max-h-56 overflow-y-auto space-y-1.5 bg-slate-50 p-3 rounded-2xl border border-slate-200 text-xs">
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button onclick="startStage(currentStageKey)" class="btn-3d bg-emerald-500 border-2 border-emerald-700 shadow-[0_4px_0_#047857] text-white font-black py-3 px-6 rounded-2xl text-sm">
+          🔄 再挑战本关一次
+        </button>
+        <button onclick="returnToMenu()" class="btn-3d bg-sky-500 border-2 border-sky-700 shadow-[0_4px_0_#0369A1] text-white font-black py-3 px-6 rounded-2xl text-sm">
+          🏠 返回选择其他关卡
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 完整 JavaScript 题库与三步闭环逻辑 ==================== -->
+  <script>
+    // =========================================================================
+    // 1. Unit 2: Life in the Past (Textbook pp. 14–21 全部 70 个生词)
+    // =========================================================================
+    const UNIT2_VOCAB = [
+      // --- #1 - #18 (Stage 1) ---
+      {
+        id: "1", isGrammar: false, word: "burn down",
+        meta: "Phrasal Verb 动词短语 | 烧毁",
+        meaning: "烧毁",
+        englishDef: "To destroy a building or place completely by fire.",
+        tip: "burn 是“燃烧”，down 是“倒塌下来”，大火把整座村庄烧得倒塌下来，就是“烧毁”！",
+        sentenceHTML: "The enemies (敌人) threatened (威胁) to <span class='blank-slot'>______</span> the entire (整个) village.",
+        enOptions: ["burn down", "tidy up", "switched on", "dig"],
+        zhOptions: ["烧毁", "整理；收拾", "打开(电灯、电器等)", "挖掘"],
+        enDefOptions: [
+          "To destroy a building or place completely by fire.",
+          "To make a room or place neat and clean.",
+          "To turn on a light or an electrical machine.",
+          "To make a hole in the ground using a tool."
+        ]
+      },
+      {
+        id: "2", isGrammar: false, word: "buried (bury)",
+        meta: "Verb 过去式 | 原形：bury (去 y 变 ied)",
+        meaning: "埋",
+        englishDef: "Put something into a hole in the ground and covered it with earth.",
+        tip: "把装有宝物的盒子放进后花园（back garden）的泥土里盖起来，buried（原形 bury）就是“埋”！",
+        sentenceHTML: "Rita's neighbour (邻居) <span class='blank-slot'>______</span> a box in the back garden.",
+        enOptions: ["buried", "dug", "fed", "hugged"],
+        zhOptions: ["埋", "挖掘", "给(人或动物)食物", "拥抱"],
+        enDefOptions: [
+          "Put something into a hole in the ground and covered it with earth.",
+          "Made a hole in the ground with a shovel.",
+          "Gave food to a person or an animal.",
+          "Put arms around someone tightly."
+        ]
+      },
+      {
+        id: "3", isGrammar: false, word: "dug (dig)",
+        meta: "Verb 过去式 | 原形：dig (不规则变化)",
+        meaning: "挖掘",
+        englishDef: "Made a hole in the ground using a shovel or hands.",
+        tip: "农夫拿着铲子（shovel）在泥地上挖出一个洞（a hole），dug（原形 dig）就是“挖掘”！",
+        sentenceHTML: "The farmer <span class='blank-slot'>______</span> a hole with a shovel (铲子).",
+        enOptions: ["dug", "buried", "rode", "fed"],
+        zhOptions: ["挖掘", "埋", "骑(马)", "给(人或动物)食物"],
+        enDefOptions: [
+          "Made a hole in the ground using a shovel or hands.",
+          "Covered something underground with soil.",
+          "Sat on a horse and controlled it as it moved.",
+          "Gave food to someone who needed help."
+        ]
+      },
+      {
+        id: "4", isGrammar: false, word: "freezing",
+        meta: "Adjective 形容词 | 极冷的",
+        meaning: "极冷的",
+        englishDef: "Extremely cold, like ice or snow.",
+        tip: "freeze 是“结冰”，冷到水都结冰了（freezing cold），所以 freezing 就是“极冷的”！",
+        sentenceHTML: "'It's <span class='blank-slot'>______</span> cold outside. I should go in now,' says Kate.",
+        enOptions: ["freezing", "modern", "awesome", "strange"],
+        zhOptions: ["极冷的", "现代的", "非常棒的", "奇怪的；不寻常的"],
+        enDefOptions: [
+          "Extremely cold, like ice or snow.",
+          "Designed using the newest ideas and technology.",
+          "Extremely good, wonderful, or impressive.",
+          "Unusual, surprising, or difficult to understand."
+        ]
+      },
+      {
+        id: "5", isGrammar: false, word: "portrait",
+        meta: "Noun 名词 | 肖像画",
+        meaning: "肖像",
+        englishDef: "A painting, drawing, or photograph of a person's face and shoulders.",
+        tip: "王子请画家为自己画一幅人物画像，挂在皇宫里，portrait 就是“肖像”！",
+        sentenceHTML: "The prince (王子) had his <span class='blank-slot'>______</span> painted last night.",
+        enOptions: ["portrait", "diary entry", "calculator", "oil lamp"],
+        zhOptions: ["肖像", "日记", "计算器", "油灯"],
+        enDefOptions: [
+          "A painting, drawing, or photograph of a person's face and shoulders.",
+          "A daily written record of personal events and thoughts.",
+          "A small electronic device used for doing mathematics.",
+          "An old-fashioned lamp that burns oil to produce light."
+        ]
+      },
+      {
+        id: "6", isGrammar: false, word: "possessions (possession)",
+        meta: "Noun 名词 | 单数：possession",
+        meaning: "财物",
+        englishDef: "Things that belong to you or that you own.",
+        tip: "祖母最珍贵（treasured）的手链（bracelet）是她拥有的私人宝贝，possessions 就是“财物”！",
+        sentenceHTML: "This bracelet (手链) is my grandmother's most treasured (珍贵的) <span class='blank-slot'>______</span>.",
+        enOptions: ["possession", "history", "entertainment", "communication"],
+        zhOptions: ["财物", "历史", "娱乐", "沟通"],
+        enDefOptions: [
+          "Something that belongs to you or that you own.",
+          "The study of past events and people.",
+          "Activities that people enjoy watching or doing for fun.",
+          "Sharing information or talking with other people."
+        ]
+      },
+      {
+        id: "7", isGrammar: false, word: "servants (servant)",
+        meta: "Noun 复数名词 | 单数：servant",
+        meaning: "仆人",
+        englishDef: "People whose job is to clean, cook, and work in a palace or large house.",
+        tip: "serve 是“服务”，加 -ant 变成提供服务的人，在皇宫（palace）工作的人就是“仆人”！",
+        sentenceHTML: "There are many <span class='blank-slot'>______</span> working in the palace (皇宫).",
+        enOptions: ["servants", "soldiers", "builders", "actors"],
+        zhOptions: ["仆人", "士兵", "建筑工人", "演员"],
+        enDefOptions: [
+          "People whose job is to clean, cook, and work in a palace or large house.",
+          "People who serve in an army and defend their country.",
+          "Workers who construct houses, bridges, and buildings.",
+          "People who perform in plays, movies, or television shows."
+        ]
+      },
+      {
+        id: "8", isGrammar: false, word: "soldier",
+        meta: "Noun 职业名词 | 士兵",
+        meaning: "士兵",
+        englishDef: "A person who serves in an army.",
+        tip: "护士（nurse）正在替受伤（wounded）的军人包扎伤口，soldier 就是保卫国家的“士兵”！",
+        sentenceHTML: "The nurse is treating (治疗) the wounded (受伤的) <span class='blank-slot'>______</span>.",
+        enOptions: ["soldier", "writer", "artist", "manager"],
+        zhOptions: ["士兵", "作家", "艺术家", "经理"],
+        enDefOptions: [
+          "A person who serves in an army.",
+          "A person who writes books, stories, or articles.",
+          "A person who creates paintings, drawings, or sculptures.",
+          "A person who is in charge of a bank, shop, or team."
+        ]
+      },
+      {
+        id: "9", isGrammar: false, word: "writer",
+        meta: "Noun 职业名词 | write (写) + r ➔ writer",
+        meaning: "作家",
+        englishDef: "A person whose job is writing books, stories, or articles.",
+        tip: "write 是“写”，加上 -r 变成写书的人，专写儿童读物的人就是“作家”！",
+        sentenceHTML: "Michelle works as a <span class='blank-slot'>______</span> of children's books.",
+        enOptions: ["writer", "director", "guide", "builder"],
+        zhOptions: ["作家", "导演", "导览员", "建筑工人"],
+        enDefOptions: [
+          "A person whose job is writing books, stories, or articles.",
+          "A person who tells actors how to perform in a film.",
+          "A person who shows tourists around interesting places.",
+          "A person who builds houses and other structures."
+        ]
+      },
+      {
+        id: "10", isGrammar: false, word: "government administrator",
+        meta: "Noun 职位名称 | 政府行政官",
+        meaning: "行政官",
+        englishDef: "An official who manages and organizes public work for the government.",
+        tip: "government 是“政府”，administrator 是“管理人员”，管理政府事务的官员就是“行政官”！",
+        sentenceHTML: "Mr Tony is known as an efficient (高效率的) <span class='blank-slot'>______</span>.",
+        enOptions: ["government administrator", "night watchman", "21st century", "electronic books"],
+        zhOptions: ["行政官", "夜间守卫员", "21 世纪", "电子书"],
+        enDefOptions: [
+          "An official who manages and organizes public work for the government.",
+          "A guard whose job is to watch and protect a building at night.",
+          "The current century of years from 2001 to 2100.",
+          "Books that you can read on a tablet, phone, or computer."
+        ]
+      },
+      {
+        id: "11", isGrammar: false, word: "Great Britain",
+        meta: "Proper Noun 专有名词 | 首字母大写",
+        meaning: "大不列颠（包括英格兰、苏格兰及威尔士的岛屿）",
+        englishDef: "The island made up of England, Wales, and Scotland.",
+        tip: "记住三大地区组合：England（英格兰）+ Wales（威尔士）+ Scotland（苏格兰）= Great Britain（大不列颠）！",
+        sentenceHTML: "<span class='blank-slot'>______</span> consists of (由……组成) England, Wales and Scotland.",
+        enOptions: ["Great Britain", "Parmesan cheese", "21st century", "barbecue"],
+        zhOptions: ["大不列颠（包括英格兰、苏格兰及威尔士的岛屿）", "帕玛森奶酪", "21 世纪", "烤肉架"],
+        enDefOptions: [
+          "The island made up of England, Wales, and Scotland.",
+          "A hard Italian cheese often grated onto pizza and pasta.",
+          "The period of 100 years that we are living in today.",
+          "A metal frame used for cooking meat outdoors over fire."
+        ]
+      },
+      {
+        id: "12", isGrammar: false, word: "jackets (jacket)",
+        meta: "Noun 复数名词 | 单数：jacket",
+        meaning: "夹克；外套",
+        englishDef: "Short coats worn over shirts to keep warm.",
+        tip: "裁缝师（tailor）正忙着为顾客缝制短款上衣，jackets 就是“夹克；外套”！",
+        sentenceHTML: "The tailor (裁缝师) is busy sewing (缝制) a few <span class='blank-slot'>______</span> for her customers.",
+        enOptions: ["jackets", "candles", "labels", "machines"],
+        zhOptions: ["夹克；外套", "蜡烛", "标签", "机器"],
+        enDefOptions: [
+          "Short coats worn over shirts to keep warm.",
+          "Sticks of wax with a wick that burn to give light.",
+          "Small pieces of paper stuck onto jars or products with info.",
+          "Devices with moving parts that do work using power."
+        ]
+      },
+      {
+        id: "13", isGrammar: false, word: "candles (candle)",
+        meta: "Noun 复数名词 | 单数：candle",
+        meaning: "蜡烛",
+        englishDef: "Sticks of wax with a string inside that burn to give light.",
+        tip: "生日蛋糕（birthday cake）上插着点亮后许愿吹熄的，就是 candles（蜡烛）！",
+        sentenceHTML: "Jessica blew (吹熄) all the <span class='blank-slot'>______</span> on her birthday cake.",
+        enOptions: ["candles", "ships", "jackets", "sounds"],
+        zhOptions: ["蜡烛", "船", "夹克；外套", "声音"],
+        enDefOptions: [
+          "Sticks of wax with a string inside that burn to give light.",
+          "Large boats that carry passengers or cargo across the sea.",
+          "Outer garments worn over the upper body.",
+          "Things that you can hear with your ears."
+        ]
+      },
+      {
+        id: "14", isGrammar: false, word: "diary entry",
+        meta: "Noun 词组 | 日记里的一篇记录",
+        meaning: "日记",
+        englishDef: "A piece of writing in a diary recording what happened that day.",
+        tip: "diary 是“日记本”，entry 是“条目/记录”，写下当天发生事情（record the events）就是“日记”！",
+        sentenceHTML: "Phoebe is writing a <span class='blank-slot'>______</span> to record (记录) the events of the day.",
+        enOptions: ["diary entry", "oil lamp", "block", "trip"],
+        zhOptions: ["日记", "油灯", "块", "旅程"],
+        enDefOptions: [
+          "A piece of writing in a diary recording what happened that day.",
+          "A lamp that burns oil for light.",
+          "A solid piece of cheese, wood, or stone with flat sides.",
+          "A journey to a place for a holiday or visit."
+        ]
+      },
+      {
+        id: "15", isGrammar: false, word: "night watchman",
+        meta: "Noun 职业复合词 | night (夜晚) + watchman (守卫)",
+        meaning: "夜间守卫员",
+        englishDef: "A guard whose job is to watch and protect a building at night.",
+        tip: "night 是“夜晚”，watch 是“看守”，man 是“人”，晚上看守大屋的人就是“夜间守卫员”！",
+        sentenceHTML: "The rich man hired (雇用) a <span class='blank-slot'>______</span> to guard (守卫) his house.",
+        enOptions: ["night watchman", "local guide", "artist", "painter"],
+        zhOptions: ["夜间守卫员", "当地导览员", "艺术家", "画家"],
+        enDefOptions: [
+          "A guard whose job is to watch and protect a building at night.",
+          "Someone who shows visitors around a town or museum.",
+          "Someone who creates works of art.",
+          "Someone whose job is painting pictures or walls."
+        ]
+      },
+      {
+        id: "16", isGrammar: false, word: "boat",
+        meta: "Noun 名词 | 渔船：fishing boat",
+        meaning: "小船",
+        englishDef: "A small vessel used for travelling on rivers or near the coast.",
+        tip: "渔夫（fisherman）正在修理出海捕鱼的小木船，boat 比 ship 小，意为“小船”！",
+        sentenceHTML: "The fisherman (渔夫) is repairing (修理) his fishing <span class='blank-slot'>______</span>.",
+        enOptions: ["boat", "cottage", "flat", "carpet"],
+        zhOptions: ["小船", "小屋", "公寓", "地毯"],
+        enDefOptions: [
+          "A small vessel used for travelling on rivers or near the coast.",
+          "A small, cozy house usually found in the countryside.",
+          "A set of rooms for living in on one floor of a building.",
+          "A thick woven covering laid on a floor."
+        ]
+      },
+      {
+        id: "17", isGrammar: false, word: "ships (ship)",
+        meta: "Noun 复数名词 | 单数：ship (远洋大船)",
+        meaning: "船",
+        englishDef: "Large vessels that carry people or goods across the sea.",
+        tip: "在海上航行的大型船队（fleet of ships），ship 指大型远洋“船”（比 boat 大得多）！",
+        sentenceHTML: "Erica is excited to see the fleet (船队) of <span class='blank-slot'>______</span> at sea.",
+        enOptions: ["ships", "candles", "jackets", "labels"],
+        zhOptions: ["船", "蜡烛", "夹克；外套", "标签"],
+        enDefOptions: [
+          "Large vessels that carry people or goods across the sea.",
+          "Wax sticks burned to produce light.",
+          "Short coats with sleeves.",
+          "Small tags attached to jars or bottles."
+        ]
+      },
+      {
+        id: "18", isGrammar: false, word: "river",
+        meta: "Noun 地理名词 | 过河：cross the river",
+        meaning: "河",
+        englishDef: "A large natural stream of fresh water flowing toward the sea.",
+        tip: "两人站在河岸边思考如何渡过水流（cross the river），river 就是“河”！",
+        sentenceHTML: "'How are we going to cross (渡过) the <span class='blank-slot'>______</span>?' asked Sanjay.",
+        enOptions: ["river", "garden", "hole", "flat"],
+        zhOptions: ["河", "花园", "洞", "公寓"],
+        enDefOptions: [
+          "A large natural stream of fresh water flowing toward the sea.",
+          "A piece of ground where flowers and plants are grown.",
+          "A hollow space dug into the ground or drilled in a wall.",
+          "An apartment in a multi-storey building."
+        ]
+      },
+
+      // --- #19 - #36 (Stage 2) ---
+      {
+        id: "19", isGrammar: false, word: "pleased",
+        meta: "Adjective 形容词 | 感到满意：be pleased with",
+        meaning: "开心的；满意的",
+        englishDef: "Happy and satisfied about something good that happened.",
+        tip: "考试成绩（exam results）很棒，父母脸上露出满意的笑容，pleased 就是“开心的；满意的”！",
+        sentenceHTML: "My parents were <span class='blank-slot'>______</span> with my exam results (考试成绩).",
+        enOptions: ["pleased", "uncomfortable", "horrible", "freezing"],
+        zhOptions: ["开心的；满意的", "令人不舒服的", "可怕的", "极冷的"],
+        enDefOptions: [
+          "Happy and satisfied about something good that happened.",
+          "Causing physical pain or an unpleasant feeling.",
+          "Very bad, scary, or unpleasant.",
+          "Extremely cold."
+        ]
+      },
+      {
+        id: "20", isGrammar: false, word: "necklace",
+        meta: "Noun 首饰名词 | neck (脖子) + lace (带子)",
+        meaning: "项链",
+        englishDef: "A piece of jewellery worn around the neck.",
+        tip: "neck 是“脖子”，戴在脖子上的钻石首饰（diamond necklace）就是“项链”！",
+        sentenceHTML: "Jian Lee bought a diamond (钻石) <span class='blank-slot'>______</span> for his wife.",
+        enOptions: ["necklace", "calculator", "ink", "carpet"],
+        zhOptions: ["项链", "计算器", "墨水", "地毯"],
+        enDefOptions: [
+          "A piece of jewellery worn around the neck.",
+          "An electronic machine used for math calculations.",
+          "Coloured liquid used in pens for writing or printing.",
+          "A heavy fabric floor covering."
+        ]
+      },
+      {
+        id: "21", isGrammar: false, word: "artist",
+        meta: "Noun 职业名词 | art (艺术) + ist ➔ artist",
+        meaning: "艺术家",
+        englishDef: "A person who creates art, especially paintings or drawings.",
+        tip: "art 是“艺术”，加上表示人的后缀 -ist，在巴黎创作艺术品的人就是“艺术家”！",
+        sentenceHTML: "Sherlene is a famous <span class='blank-slot'>______</span> in Paris (巴黎).",
+        enOptions: ["artist", "soldier", "builder", "manager"],
+        zhOptions: ["艺术家", "士兵", "建筑工人", "经理"],
+        enDefOptions: [
+          "A person who creates art, especially paintings or drawings.",
+          "A member of an army.",
+          "A worker who constructs buildings.",
+          "Someone who runs a business or bank branch."
+        ]
+      },
+      {
+        id: "22", isGrammar: false, word: "uncomfortable",
+        meta: "Adjective 形容词 | un (不) + comfortable (舒服的)",
+        meaning: "令人不舒服的",
+        englishDef: "Not feeling physically relaxed; causing discomfort.",
+        tip: "comfortable 是“舒服的”，前面加否定前缀 un- 变成反义词，床太硬睡不好就是“令人不舒服的”！",
+        sentenceHTML: "Wendy couldn't sleep well because the bed was <span class='blank-slot'>______</span>.",
+        enOptions: ["uncomfortable", "pleased", "awesome", "modern"],
+        zhOptions: ["令人不舒服的", "开心的；满意的", "非常棒的", "现代的"],
+        enDefOptions: [
+          "Not feeling physically relaxed; causing discomfort.",
+          "Feeling happy and satisfied.",
+          "Amazing and wonderful.",
+          "Up-to-date and contemporary."
+        ]
+      },
+      {
+        id: "23", isGrammar: false, word: "rode (ride)",
+        meta: "Verb 过去式 | 原形：ride (不规则变化)",
+        meaning: "骑（马）",
+        englishDef: "Sat on a horse or bicycle and controlled it as it moved.",
+        tip: "昨天（yesterday）在公园骑马，ride 的过去式把 i 变成 o，就是 rode（骑）！",
+        sentenceHTML: "Richard <span class='blank-slot'>______</span> a horse at the park yesterday.",
+        enOptions: ["rode", "dug", "fed", "sail"],
+        zhOptions: ["骑（马）", "挖掘", "给(人或动物)食物", "航行"],
+        enDefOptions: [
+          "Sat on a horse or bicycle and controlled it as it moved.",
+          "Made a hole in the soil.",
+          "Gave food to someone.",
+          "Travelled across water in a ship."
+        ]
+      },
+      {
+        id: "24", isGrammar: false, word: "block",
+        meta: "Noun 量词/名词 | 一大块奶酪：a block of cheese",
+        meaning: "块",
+        englishDef: "A solid piece of food, wood, or stone with flat sides.",
+        tip: "爸爸在市场买了一整大块正方形的奶酪（a block of cheese），block 就是“块”！",
+        sentenceHTML: "Father bought a <span class='blank-slot'>______</span> of cheese (奶酪) at the market.",
+        enOptions: ["block", "hole", "river", "trip"],
+        zhOptions: ["块", "洞", "河", "旅程"],
+        enDefOptions: [
+          "A solid piece of food, wood, or stone with flat sides.",
+          "An empty opening in a wall or ground.",
+          "A natural flowing body of fresh water.",
+          "A journey to another place."
+        ]
+      },
+      {
+        id: "25", isGrammar: false, word: "Parmesan cheese",
+        meta: "Noun 食物专有名词 | 意大利硬质奶酪",
+        meaning: "帕玛森奶酪",
+        englishDef: "A hard, dry Italian cheese often grated over pizza or pasta.",
+        tip: "做披萨（pizza）和意大利面时最常撒在上面的经典意大利硬奶酪就是 Parmesan cheese（帕玛森奶酪）！",
+        sentenceHTML: "'I need some <span class='blank-slot'>______</span> to make this pizza,' said Min Yee.",
+        enOptions: ["Parmesan cheese", "oil lamp", "diary entry", "electronic books"],
+        zhOptions: ["帕玛森奶酪", "油灯", "日记", "电子书"],
+        enDefOptions: [
+          "A hard, dry Italian cheese often grated over pizza or pasta.",
+          "An antique lamp that uses oil.",
+          "Daily notes written in a personal journal.",
+          "Digital books read on a screen."
+        ]
+      },
+      {
+        id: "26", isGrammar: false, word: "hole",
+        meta: "Noun 名词 | 钻洞：drill a hole",
+        meaning: "洞",
+        englishDef: "An opening or hollow space in a solid surface like a wall.",
+        tip: "哥哥用电钻在墙壁（wall）上钻出一个小圆孔，hole 就是“洞”！",
+        sentenceHTML: "My brother drilled (钻) a <span class='blank-slot'>______</span> in the wall.",
+        enOptions: ["hole", "block", "portrait", "garden"],
+        zhOptions: ["洞", "块", "肖像", "花园"],
+        enDefOptions: [
+          "An opening or hollow space in a solid surface like a wall.",
+          "A solid rectangular piece of cheese or wood.",
+          "A framed picture of a person.",
+          "An outdoor area with flowers and trees."
+        ]
+      },
+      {
+        id: "27", isGrammar: false, word: "garden",
+        meta: "Noun 地点名词 | 玫瑰园：rose garden",
+        meaning: "花园",
+        englishDef: "A piece of land next to a house where flowers and plants grow.",
+        tip: "女孩们开心地走在开满玫瑰花的花园小径（rose garden）里，garden 就是“花园”！",
+        sentenceHTML: "The girls are walking happily in the rose <span class='blank-slot'>______</span>.",
+        enOptions: ["garden", "cottage", "flat", "boat"],
+        zhOptions: ["花园", "小屋", "公寓", "小船"],
+        enDefOptions: [
+          "A piece of land next to a house where flowers and plants grow.",
+          "A small country house.",
+          "A home on one floor of a large building.",
+          "A small watercraft."
+        ]
+      },
+      {
+        id: "28", isGrammar: false, word: "steal",
+        meta: "Verb 动词 | 过去式：stole",
+        meaning: "偷窃",
+        englishDef: "To take something that belongs to someone else without permission.",
+        tip: "蒙面盗贼（burglars）破门闯入屋内拿走贵重物品（valuables），steal 就是“偷窃”！",
+        sentenceHTML: "The burglars (盗贼) broke into the house to <span class='blank-slot'>______</span> some valuables (贵重物品).",
+        enOptions: ["steal", "invent", "expand", "repeat"],
+        zhOptions: ["偷窃", "发明", "扩充；扩大", "重复"],
+        enDefOptions: [
+          "To take something that belongs to someone else without permission.",
+          "To create or design something completely new.",
+          "To make something larger or wider in range.",
+          "To say or do something again."
+        ]
+      },
+      {
+        id: "29", isGrammar: false, word: "painter",
+        meta: "Noun 职业名词 | paint (画) + er ➔ painter",
+        meaning: "画家",
+        englishDef: "Someone who paints pictures as a job or hobby.",
+        tip: "paint 是“绘画”，加上 -er 变成画画的人，专门画风景画（landscape）的人就是“画家”！",
+        sentenceHTML: "Adam works as a landscape (风景) <span class='blank-slot'>______</span>.",
+        enOptions: ["painter", "actor", "director", "writer"],
+        zhOptions: ["画家", "演员", "导演", "作家"],
+        enDefOptions: [
+          "Someone who paints pictures as a job or hobby.",
+          "A person who performs in movies or plays.",
+          "The person who leads the making of a film.",
+          "An author of books or stories."
+        ]
+      },
+      {
+        id: "30", isGrammar: false, word: "director",
+        meta: "Noun 职业名词 | direct (执导) + or ➔ director",
+        meaning: "导演",
+        englishDef: "The person in charge of making a film or play.",
+        tip: "direct 是“指导/执导”，加上后缀 -or，负责指挥拍摄动作片（action film）的人就是“导演”！",
+        sentenceHTML: "Priya is the <span class='blank-slot'>______</span> of an action film (动作片).",
+        enOptions: ["director", "builder", "soldier", "servant"],
+        zhOptions: ["导演", "建筑工人", "士兵", "仆人"],
+        enDefOptions: [
+          "The person in charge of making a film or play.",
+          "Someone who constructs buildings.",
+          "A person serving in the military.",
+          "A domestic helper in a palace."
+        ]
+      },
+      {
+        id: "31", isGrammar: false, word: "expand",
+        meta: "Verb 动词 | 扩充词汇量：expand vocabulary",
+        meaning: "扩充；扩大",
+        englishDef: "To become larger or increase the amount of something.",
+        tip: "多阅读课外书可以让我们的词汇量（vocabulary）越来越丰富、越来越大，expand 就是“扩充；扩大”！",
+        sentenceHTML: "The teacher advised (建议) her students to read more books to <span class='blank-slot'>______</span> their vocabulary (词汇量).",
+        enOptions: ["expand", "dust", "stick", "record"],
+        zhOptions: ["扩充；扩大", "清除或擦去灰尘", "粘贴", "录音"],
+        enDefOptions: [
+          "To become larger or increase the amount of something.",
+          "To wipe dry powder or dirt off furniture.",
+          "To attach something to a wall using glue or tape.",
+          "To store sounds or voices using a device."
+        ]
+      },
+      {
+        id: "32", isGrammar: false, word: "actor",
+        meta: "Noun 职业名词 | act (演戏) + or ➔ actor",
+        meaning: "演员",
+        englishDef: "A person who performs a role in a play, movie, or TV show.",
+        tip: "act 是“演戏”，加上后缀 -or，站在红地毯上受粉丝欢呼的明星就是“演员”！",
+        sentenceHTML: "Romeo is a famous <span class='blank-slot'>______</span>.",
+        enOptions: ["actor", "painter", "writer", "guide"],
+        zhOptions: ["演员", "画家", "作家", "导览员"],
+        enDefOptions: [
+          "A person who performs a role in a play, movie, or TV show.",
+          "A person who paints landscapes or portraits.",
+          "A person who writes books.",
+          "A person who leads tours."
+        ]
+      },
+      {
+        id: "33", isGrammar: false, word: "sail",
+        meta: "Verb 动词 | 起航：set sail",
+        meaning: "航行",
+        englishDef: "To travel across water in a ship or boat.",
+        tip: "所有乘客登船（on board）后，轮船扬帆起航（set sail），sail 就是“航行”！",
+        sentenceHTML: "The ship is going to set <span class='blank-slot'>______</span> after all passengers (乘客) are on board.",
+        enOptions: ["sail", "steal", "invent", "chop"],
+        zhOptions: ["航行", "偷窃", "发明", "切碎"],
+        enDefOptions: [
+          "To travel across water in a ship or boat.",
+          "To take someone else's property secretly.",
+          "To create a brand-new machine or device.",
+          "To cut vegetables into small pieces."
+        ]
+      },
+      {
+        id: "34", isGrammar: false, word: "invent",
+        meta: "Verb 动词 | 发明",
+        meaning: "发明",
+        englishDef: "To design or create something that has never existed before.",
+        tip: "创造出以前世界上没有的会说话机器人（a robot that talks），invent 就是“发明”！",
+        sentenceHTML: "Raymond wants to <span class='blank-slot'>______</span> a robot that talks.",
+        enOptions: ["invent", "repeat", "vacuum", "dust"],
+        zhOptions: ["发明", "重复", "用吸尘器打扫", "清除或擦去灰尘"],
+        enDefOptions: [
+          "To design or create something that has never existed before.",
+          "To say something one more time.",
+          "To clean carpets using a vacuum cleaner.",
+          "To remove dust from shelves."
+        ]
+      },
+      {
+        id: "35", isGrammar: false, word: "calculator",
+        meta: "Noun 工具名词 | calculate (计算) + or",
+        meaning: "计算器",
+        englishDef: "A small electronic machine used for doing mathematical calculations.",
+        tip: "calculate 是“计算”，数学考试（math exam）时不准携带的电子计算工具就是“计算器”！",
+        sentenceHTML: "The pupils are not allowed to use a <span class='blank-slot'>______</span> in their math exam.",
+        enOptions: ["calculator", "necklace", "oil lamp", "barbecue"],
+        zhOptions: ["计算器", "项链", "油灯", "烤肉架"],
+        enDefOptions: [
+          "A small electronic machine used for doing mathematical calculations.",
+          "Jewellery worn around the neck.",
+          "An old lamp burning oil.",
+          "A grill used for cooking meat."
+        ]
+      },
+      {
+        id: "36", isGrammar: false, word: "carpet",
+        meta: "Noun 家居名词 | 地毯",
+        meaning: "地毯",
+        englishDef: "A thick woven fabric used for covering floors.",
+        tip: "铺在客厅地板上柔软厚实的织物，Zaireen 正帮妈妈刷洗它，carpet 就是“地毯”！",
+        sentenceHTML: "Zaireen is helping her mother to clean the <span class='blank-slot'>______</span>.",
+        enOptions: ["carpet", "ink", "hole", "river"],
+        zhOptions: ["地毯", "墨水", "洞", "河"],
+        enDefOptions: [
+          "A thick woven fabric used for covering floors.",
+          "Dark liquid used in pens for writing.",
+          "An opening drilled in a wall.",
+          "A flowing stream of water."
+        ]
+      },
+
+      // --- #37 - #54 (Stage 3) ---
+      {
+        id: "37", isGrammar: false, word: "cottage",
+        meta: "Noun 建筑名词 | 乡间小屋",
+        meaning: "小屋",
+        englishDef: "A small, cozy house, usually in the countryside.",
+        tip: "乡村田野间精致温馨的尖顶小房子，夫妇俩住在里面，cottage 就是“小屋”！",
+        sentenceHTML: "The couple (夫妇) lives in a <span class='blank-slot'>______</span>.",
+        enOptions: ["cottage", "flat", "boat", "ships"],
+        zhOptions: ["小屋", "公寓", "小船", "船"],
+        enDefOptions: [
+          "A small, cozy house, usually in the countryside.",
+          "A home on one floor of a tall apartment building.",
+          "A small watercraft.",
+          "Large sea vessels."
+        ]
+      },
+      {
+        id: "38", isGrammar: false, word: "history",
+        meta: "Noun 学科名词 | 历史",
+        meaning: "历史",
+        englishDef: "The study of past events, people, and civilizations.",
+        tip: "讲述古代故事与过去发生过的事情，Mahmood 最喜欢读“历史”书（history books）！",
+        sentenceHTML: "Mahmood enjoys reading <span class='blank-slot'>______</span> books.",
+        enOptions: ["history", "communication", "entertainment", "chores"],
+        zhOptions: ["历史", "沟通", "娱乐", "家务"],
+        enDefOptions: [
+          "The study of past events, people, and civilizations.",
+          "Exchanging ideas and messages with others.",
+          "Shows, music, and fun activities.",
+          "Daily cleaning and tidying tasks at home."
+        ]
+      },
+      {
+        id: "39", isGrammar: false, word: "vacuum",
+        meta: "Verb 动词 | 吸尘打扫",
+        meaning: "用吸尘器打扫",
+        englishDef: "To clean a floor or carpet using a vacuum cleaner.",
+        tip: "用吸尘机（vacuum cleaner）把客厅（living room）地上的灰尘吸干净，vacuum 就是“用吸尘器打扫”！",
+        sentenceHTML: "Farah's mother is going to <span class='blank-slot'>______</span> the living room.",
+        enOptions: ["vacuum", "dust", "chop", "sail"],
+        zhOptions: ["用吸尘器打扫", "清除或擦去灰尘", "切碎", "航行"],
+        enDefOptions: [
+          "To clean a floor or carpet using a vacuum cleaner.",
+          "To wipe dust off bookshelves.",
+          "To cut food into small pieces.",
+          "To travel by ship."
+        ]
+      },
+      {
+        id: "40", isGrammar: false, word: "chores",
+        meta: "Plural Noun 复数名词 | 家务：household chores",
+        meaning: "家务",
+        englishDef: "Routine tasks around the house such as sweeping and washing.",
+        tip: "每天放学后扫地、抹桌子等日常家庭杂务（household chores），chores 就是“家务”！",
+        sentenceHTML: "Tanya does the household (家庭的) <span class='blank-slot'>______</span> every day after school.",
+        enOptions: ["chores", "sounds", "noises", "machines"],
+        zhOptions: ["家务", "声音", "声音；声响", "机器"],
+        enDefOptions: [
+          "Routine tasks around the house such as sweeping and washing.",
+          "Pleasant or natural things that you hear.",
+          "Loud or strange sounds that can disturb you.",
+          "Mechanical devices that perform tasks."
+        ]
+      },
+      {
+        id: "41", isGrammar: false, word: "tidy up",
+        meta: "Phrasal Verb 动词短语 | 整理；收拾",
+        meaning: "整理；收拾",
+        englishDef: "To make a room or place neat by putting things in their proper places.",
+        tip: "tidy 是“整洁的”，妈妈叫 Lina 把乱糟糟的卧室收拾干净，tidy up 就是“整理；收拾”！",
+        sentenceHTML: "Lina was asked by her mother to <span class='blank-slot'>______</span> her bedroom.",
+        enOptions: ["tidy up", "burn down", "switched on", "steal"],
+        zhOptions: ["整理；收拾", "烧毁", "打开(电灯、电器等)", "偷窃"],
+        enDefOptions: [
+          "To make a room or place neat by putting things in their proper places.",
+          "To destroy completely with fire.",
+          "To turn on a light or appliance.",
+          "To take something without permission."
+        ]
+      },
+      {
+        id: "42", isGrammar: false, word: "flat",
+        meta: "Noun 住宅名词 | 组屋/公寓",
+        meaning: "公寓",
+        englishDef: "A set of rooms for living in on one floor of a building.",
+        tip: "在同一栋大楼里分层的住宅单位（组屋/公寓），Sam 一家人住在里面，flat 就是“公寓”！",
+        sentenceHTML: "Sam and his family live in a <span class='blank-slot'>______</span>.",
+        enOptions: ["flat", "cottage", "river", "kilometre"],
+        zhOptions: ["公寓", "小屋", "河", "公里"],
+        enDefOptions: [
+          "A set of rooms for living in on one floor of a building.",
+          "A small house in a village.",
+          "A long natural stream of water.",
+          "A unit of distance equal to 1,000 metres."
+        ]
+      },
+      {
+        id: "43", isGrammar: false, word: "dust",
+        meta: "Verb 动词 | 拂去灰尘",
+        meaning: "清除或擦去灰尘",
+        englishDef: "To remove fine dry dirt from furniture using a cloth.",
+        tip: "dust 作名词是“灰尘”，作动词就是用抹布把书架（bookshelves）上的灰尘擦掉，即“清除或擦去灰尘”！",
+        sentenceHTML: "Atirah and her sister <span class='blank-slot'>______</span> their bookshelves (书架).",
+        enOptions: ["dust", "vacuum", "stick", "repeat"],
+        zhOptions: ["清除或擦去灰尘", "用吸尘器打扫", "粘贴", "重复"],
+        enDefOptions: [
+          "To remove fine dry dirt from furniture using a cloth.",
+          "To clean carpets with a vacuum cleaner.",
+          "To attach pictures onto a wall.",
+          "To say something again."
+        ]
+      },
+      {
+        id: "44", isGrammar: false, word: "guide",
+        meta: "Noun 职业名词 | 导游/导览员",
+        meaning: "导览员",
+        englishDef: "A person who shows tourists around a town, museum, or landmark.",
+        tip: "拿着小旗子带领游客参观城镇名胜古迹（showed us around the town）的人就是“导览员”！",
+        sentenceHTML: "The local (当地的) <span class='blank-slot'>______</span> showed us around the town.",
+        enOptions: ["guide", "builder", "soldier", "servant"],
+        zhOptions: ["导览员", "建筑工人", "士兵", "仆人"],
+        enDefOptions: [
+          "A person who shows tourists around a town, museum, or landmark.",
+          "A person who constructs buildings.",
+          "A person in the army.",
+          "A person working in a palace."
+        ]
+      },
+      {
+        id: "45", isGrammar: false, word: "ink",
+        meta: "Uncountable Noun 不可数名词 | 墨水",
+        meaning: "墨水",
+        englishDef: "Coloured liquid used in pens for writing, drawing, or printing.",
+        tip: "以前没有圆珠笔时，祖父蘸着瓶子里的黑色液体写信（in black ink），ink 就是“墨水”！",
+        sentenceHTML: "My grandfather used to write letters in black <span class='blank-slot'>______</span>.",
+        enOptions: ["ink", "carpet", "block", "trip"],
+        zhOptions: ["墨水", "地毯", "块", "旅程"],
+        enDefOptions: [
+          "Coloured liquid used in pens for writing, drawing, or printing.",
+          "A thick woven floor covering.",
+          "A solid piece of cheese.",
+          "A holiday journey."
+        ]
+      },
+      {
+        id: "46", isGrammar: false, word: "kilometre",
+        meta: "Noun 长度单位 | 1 kilometre = 1,000 metres",
+        meaning: "公里",
+        englishDef: "A unit for measuring distance, equal to 1,000 metres.",
+        tip: "kilo 代表“千”，metre 是“米”，一千米（distance 距离）就是一“公里”（kilometre）！",
+        sentenceHTML: "The distance (距离) between my house and my school is only one <span class='blank-slot'>______</span>.",
+        enOptions: ["kilometre", "21st century", "portrait", "calculator"],
+        zhOptions: ["公里", "21 世纪", "肖像", "计算器"],
+        enDefOptions: [
+          "A unit for measuring distance, equal to 1,000 metres.",
+          "The years from 2001 to 2100.",
+          "A painting of a person.",
+          "A device for math."
+        ]
+      },
+      {
+        id: "47", isGrammar: false, word: "oil lamp",
+        meta: "Noun 复合名词 | oil (油) + lamp (灯)",
+        meaning: "油灯",
+        englishDef: "An old-fashioned lamp that burns oil to give light before electricity.",
+        tip: "ancient/antique shop（古董店）里卖的古代灯具，里面装煤油点亮，oil lamp 就是“油灯”！",
+        sentenceHTML: "Father bought an <span class='blank-slot'>______</span> at the antique shop (古董店).",
+        enOptions: ["oil lamp", "electronic books", "calculator", "barbecue"],
+        zhOptions: ["油灯", "电子书", "计算器", "烤肉架"],
+        enDefOptions: [
+          "An old-fashioned lamp that burns oil to give light before electricity.",
+          "Books read on an electronic device.",
+          "A small math machine.",
+          "An outdoor grill for meat."
+        ]
+      },
+      {
+        id: "48", isGrammar: false, word: "modern",
+        meta: "Adjective 形容词 | 反义词：ancient / old-fashioned",
+        meaning: "现代的",
+        englishDef: "Belonging to the present time; new and up-to-date.",
+        tip: "与古代（in the past）相对，充满最新设计感的建筑风格（architecture），modern 就是“现代的”！",
+        sentenceHTML: "Vivian likes the building's <span class='blank-slot'>______</span> architecture (建筑风格).",
+        enOptions: ["modern", "freezing", "horrible", "strange"],
+        zhOptions: ["现代的", "极冷的", "可怕的", "奇怪的；不寻常的"],
+        enDefOptions: [
+          "Belonging to the present time; new and up-to-date.",
+          "Very cold.",
+          "Very frightening or unpleasant.",
+          "Unusual and unfamiliar."
+        ]
+      },
+      {
+        id: "49", isGrammar: false, word: "fed (feed)",
+        meta: "Verb 过去式 | 原形：feed (ee 变 e)",
+        meaning: "给（人或动物）食物",
+        englishDef: "Gave food to a person, baby, or animal.",
+        tip: "Natasha 拿着汤匙一勺一勺喂祖母喝汤，fed（原形 feed）就是“给（人或动物）食物”！",
+        sentenceHTML: "Natasha <span class='blank-slot'>______</span> her grandmother some soup.",
+        enOptions: ["fed", "dug", "buried", "rode"],
+        zhOptions: ["给（人或动物）食物", "挖掘", "埋", "骑（马）"],
+        enDefOptions: [
+          "Gave food to a person, baby, or animal.",
+          "Made a hole in the earth.",
+          "Put something underground.",
+          "Rode on a horse."
+        ]
+      },
+      {
+        id: "50", isGrammar: false, word: "awesome",
+        meta: "Adjective 形容词 | 非常棒的",
+        meaning: "非常棒的",
+        englishDef: "Extremely good, exciting, or wonderful.",
+        tip: "为弟弟准备了一个超级精彩、令人惊叹的生日派对计划，awesome 就是“非常棒的”！",
+        sentenceHTML: "Priyanka has an <span class='blank-slot'>______</span> plan for her brother's birthday party.",
+        enOptions: ["awesome", "horrible", "uncomfortable", "freezing"],
+        zhOptions: ["非常棒的", "可怕的", "令人不舒服的", "极冷的"],
+        enDefOptions: [
+          "Extremely good, exciting, or wonderful.",
+          "Very bad, scary, or shocking.",
+          "Causing discomfort.",
+          "Extremely cold."
+        ]
+      },
+      {
+        id: "51", isGrammar: false, word: "horrible",
+        meta: "Adjective 形容词 | 可怕的",
+        meaning: "可怕的",
+        englishDef: "Very bad, frightening, or unpleasant.",
+        tip: "明仁最讨厌蛇（snakes），觉得蛇既吓人又讨厌，horrible 就是“可怕的”！",
+        sentenceHTML: "Ming Ren doesn't like snakes because he thinks snakes are <span class='blank-slot'>______</span>.",
+        enOptions: ["horrible", "pleased", "awesome", "modern"],
+        zhOptions: ["可怕的", "开心的；满意的", "非常棒的", "现代的"],
+        enDefOptions: [
+          "Very bad, frightening, or unpleasant.",
+          "Happy and satisfied.",
+          "Wonderful and amazing.",
+          "New and contemporary."
+        ]
+      },
+      {
+        id: "52", isGrammar: false, word: "sounds (sound)",
+        meta: "Noun 复数名词 | 单数：sound (泛指各种声音)",
+        meaning: "声音",
+        englishDef: "Things that you can hear, such as animal calls or music.",
+        tip: "小宝宝听到可爱的小动物叫声就咯咯笑（giggles），sounds 泛指各种“声音”！",
+        sentenceHTML: "The baby giggles (咯咯地笑) when he listens to animal <span class='blank-slot'>______</span>.",
+        enOptions: ["sounds", "labels", "jackets", "machines"],
+        zhOptions: ["声音", "标签", "夹克；外套", "机器"],
+        enDefOptions: [
+          "Things that you can hear, such as animal calls or music.",
+          "Paper tags attached to jars.",
+          "Short coats.",
+          "Mechanical devices."
+        ]
+      },
+      {
+        id: "53", isGrammar: false, word: "noises (noise)",
+        meta: "Noun 复数名词 | 单数：noise (多指奇怪或吵杂声响)",
+        meaning: "声音；声响",
+        englishDef: "Loud, strange, or unpleasant sounds that can startle or disturb you.",
+        tip: "厨房突然传来奇怪的砰砰声响，吓得祖母惊慌失措（panicked），noises 指“声音；声响（常指异响/噪音）”！",
+        sentenceHTML: "My grandmother panicked (惊慌) when she heard strange <span class='blank-slot'>______</span> coming from the kitchen.",
+        enOptions: ["noises", "candles", "ships", "chores"],
+        zhOptions: ["声音；声响", "蜡烛", "船", "家务"],
+        enDefOptions: [
+          "Loud, strange, or unpleasant sounds that can startle or disturb you.",
+          "Wax sticks for light.",
+          "Large sea vessels.",
+          "Household tasks."
+        ]
+      },
+      {
+        id: "54", isGrammar: false, word: "trip",
+        meta: "Noun 名词 | 短途旅程",
+        meaning: "旅程",
+        englishDef: "A journey to a place and back again, usually for a holiday.",
+        tip: "因为突如其来的雷雨（thunderstorm），去邦咯岛（Pulau Pangkor）的游玩行程被迫取消了，trip 就是“旅程”！",
+        sentenceHTML: "Their <span class='blank-slot'>______</span> to Pulau Pangkor was cancelled (取消) due to a sudden thunderstorm (雷雨).",
+        enOptions: ["trip", "block", "hole", "ink"],
+        zhOptions: ["旅程", "块", "洞", "墨水"],
+        enDefOptions: [
+          "A journey to a place and back again, usually for a holiday.",
+          "A solid rectangular piece of cheese.",
+          "An opening in a wall.",
+          "Writing liquid."
+        ]
+      },
+
+      // --- #55 - #70 (Stage 4) ---
+      {
+        id: "55", isGrammar: false, word: "repeat",
+        meta: "Verb 动词 | 重复一遍",
+        meaning: "重复",
+        englishDef: "To say or do something again.",
+        tip: "re- 表示“再一次”，没听清楚老师刚才说的句子，请再念一遍，repeat 就是“重复”！",
+        sentenceHTML: "'Could you please <span class='blank-slot'>______</span> that sentence?' asked Tina.",
+        enOptions: ["repeat", "invent", "steal", "chop"],
+        zhOptions: ["重复", "发明", "偷窃", "切碎"],
+        enDefOptions: [
+          "To say or do something again.",
+          "To create something brand new.",
+          "To take without permission.",
+          "To cut into small pieces."
+        ]
+      },
+      {
+        id: "56", isGrammar: false, word: "labels (label)",
+        meta: "Noun 复数名词 | 单数：label",
+        meaning: "标签",
+        englishDef: "Small pieces of paper or plastic attached to objects to give information.",
+        tip: "工厂工人们正把写着名称和日期的贴纸贴在玻璃罐（jars）上，labels 就是“标签”！",
+        sentenceHTML: "The workers are applying (贴上) <span class='blank-slot'>______</span> on the jars (罐子).",
+        enOptions: ["labels", "machines", "candles", "jackets"],
+        zhOptions: ["标签", "机器", "蜡烛", "夹克；外套"],
+        enDefOptions: [
+          "Small pieces of paper or plastic attached to objects to give information.",
+          "Devices with moving parts that do work.",
+          "Sticks of wax that burn.",
+          "Short coats."
+        ]
+      },
+      {
+        id: "57", isGrammar: false, word: "stick",
+        meta: "Verb 动词 | 粘贴",
+        meaning: "粘贴",
+        englishDef: "To attach something to a surface using glue or tape.",
+        tip: "Rita 用胶水或双面胶把漂亮的图片粘在房间墙壁（wall）上，stick 就是“粘贴”！",
+        sentenceHTML: "Rita is planning to <span class='blank-slot'>______</span> some pictures on the wall of her room.",
+        enOptions: ["stick", "dust", "vacuum", "expand"],
+        zhOptions: ["粘贴", "清除或擦去灰尘", "用吸尘器打扫", "扩充；扩大"],
+        enDefOptions: [
+          "To attach something to a surface using glue or tape.",
+          "To wipe dust off surfaces.",
+          "To clean with a vacuum.",
+          "To make larger."
+        ]
+      },
+      {
+        id: "58", isGrammar: false, word: "record",
+        meta: "Verb 动词 | 录音（重音在第二音节）",
+        meaning: "录音",
+        englishDef: "To store sounds, voices, or music so they can be heard later.",
+        tip: "Penny 拿着录音笔（voice recorder）把自己的声音录下来，record 作动词意为“录音”！",
+        sentenceHTML: "Penny uses a voice recorder (录音机) to <span class='blank-slot'>______</span> her voice.",
+        enOptions: ["record", "repeat", "sail", "dig"],
+        zhOptions: ["录音", "重复", "航行", "挖掘"],
+        enDefOptions: [
+          "To store sounds, voices, or music so they can be heard later.",
+          "To say something again.",
+          "To travel across the ocean.",
+          "To make a hole in the ground."
+        ]
+      },
+      {
+        id: "59", isGrammar: false, word: "entertainment",
+        meta: "Uncountable Noun 不可数名词 | 娱乐",
+        meaning: "娱乐",
+        englishDef: "Music, shows, or performances that give people pleasure and fun.",
+        tip: "派对上的现场歌舞表演（live entertainment）让大家开怀大笑，entertainment 就是“娱乐”！",
+        sentenceHTML: "Sarah and her friends are enjoying the live (现场的) <span class='blank-slot'>______</span> at the party.",
+        enOptions: ["entertainment", "communication", "history", "possession"],
+        zhOptions: ["娱乐", "沟通", "历史", "财物"],
+        enDefOptions: [
+          "Music, shows, or performances that give people pleasure and fun.",
+          "Sharing information and talking with others.",
+          "Events from the past.",
+          "Personal belongings."
+        ]
+      },
+      {
+        id: "60", isGrammar: false, word: "communication",
+        meta: "Uncountable Noun 不可数名词 | 沟通；交流",
+        meaning: "沟通",
+        englishDef: "The act of sharing information, ideas, or feelings with others.",
+        tip: "学生们正在练习如何更好地与人说话交流（communication skills），communication 就是“沟通”！",
+        sentenceHTML: "The students are working on developing (培养) their <span class='blank-slot'>______</span> skills.",
+        enOptions: ["communication", "entertainment", "history", "barbecue"],
+        zhOptions: ["沟通", "娱乐", "历史", "烤肉架"],
+        enDefOptions: [
+          "The act of sharing information, ideas, or feelings with others.",
+          "Fun shows and music.",
+          "The study of past times.",
+          "An outdoor cooking grill."
+        ]
+      },
+      {
+        id: "61", isGrammar: false, word: "21st century",
+        meta: "Noun 时代名词 | 2001年至2100年",
+        meaning: "21 世纪",
+        englishDef: "The period of 100 years from 2001 to 2100 that we live in now.",
+        tip: "century 是“一百年（世纪）”，2000 年之后就是我们现在生活的“21 世纪”（21st century）！",
+        sentenceHTML: "We are living in the <span class='blank-slot'>______</span>.",
+        enOptions: ["21st century", "Great Britain", "electronic books", "oil lamp"],
+        zhOptions: ["21 世纪", "大不列颠", "电子书", "油灯"],
+        enDefOptions: [
+          "The period of 100 years from 2001 to 2100 that we live in now.",
+          "The island of England, Scotland, and Wales.",
+          "Digital books read on tablets or computers.",
+          "A lamp that burns oil."
+        ]
+      },
+      {
+        id: "62", isGrammar: false, word: "strange",
+        meta: "Adjective 形容词 | 奇怪的；不寻常的",
+        meaning: "奇怪的；不寻常的",
+        englishDef: "Unusual, surprising, or difficult to explain.",
+        tip: "Rachel 从来没有见过长相这么奇特的动物，strange 就是“奇怪的；不寻常的”！",
+        sentenceHTML: "Rachel has never seen that <span class='blank-slot'>______</span> animal before.",
+        enOptions: ["strange", "modern", "pleased", "awesome"],
+        zhOptions: ["奇怪的；不寻常的", "现代的", "开心的；满意的", "非常棒的"],
+        enDefOptions: [
+          "Unusual, surprising, or difficult to explain.",
+          "New and contemporary.",
+          "Happy and satisfied.",
+          "Extremely wonderful."
+        ]
+      },
+      {
+        id: "63", isGrammar: false, word: "electronic books",
+        meta: "Plural Noun 复合名词 | e-books 电子书",
+        meaning: "电子书",
+        englishDef: "Digital books that can be read on a computer, tablet, or smartphone.",
+        tip: "electronic 是“电子的”，不用纸张印刷、在平板电脑上阅读的书就是“电子书”（electronic books）！",
+        sentenceHTML: "The publisher (出版社) is known for publishing (出版) many interesting <span class='blank-slot'>______</span>.",
+        enOptions: ["electronic books", "oil lamps", "candles", "jackets"],
+        zhOptions: ["电子书", "油灯", "蜡烛", "夹克；外套"],
+        enDefOptions: [
+          "Digital books that can be read on a computer, tablet, or smartphone.",
+          "Old lamps that burn oil.",
+          "Wax sticks for light.",
+          "Short coats."
+        ]
+      },
+      {
+        id: "64", isGrammar: false, word: "switched on (switch on)",
+        meta: "Phrasal Verb 过去式 | 原形：switch on",
+        meaning: "打开（电灯、电器等）",
+        englishDef: "Turned on a light or an electrical device using a switch.",
+        tip: "switch 是“开关”，按一下开关让电灯亮起来，switched on 就是“打开（电灯、电器等）”！",
+        sentenceHTML: "'Alice <span class='blank-slot'>______</span> the lights last night,' said Esther.",
+        enOptions: ["switched on", "burn down", "tidy up", "buried"],
+        zhOptions: ["打开（电灯、电器等）", "烧毁", "整理；收拾", "埋"],
+        enDefOptions: [
+          "Turned on a light or an electrical device using a switch.",
+          "Destroyed a building with fire.",
+          "Cleaned and arranged a messy room.",
+          "Covered something with soil."
+        ]
+      },
+      {
+        id: "65", isGrammar: false, word: "machines (machine)",
+        meta: "Noun 复数名词 | 单数：machine",
+        meaning: "机器",
+        englishDef: "Devices with moving parts that use power to do work.",
+        tip: "工程师（engineer）正在工厂里修理出故障的机械设备，machines 就是“机器”！",
+        sentenceHTML: "The engineer (工程师) is repairing the faulty (有故障的) <span class='blank-slot'>______</span>.",
+        enOptions: ["machines", "labels", "servants", "ships"],
+        zhOptions: ["机器", "标签", "仆人", "船"],
+        enDefOptions: [
+          "Devices with moving parts that use power to do work.",
+          "Small paper tags on jars.",
+          "People working in a palace.",
+          "Large sea vessels."
+        ]
+      },
+      {
+        id: "66", isGrammar: false, word: "acting (act)",
+        meta: "Noun/Verb 动名词 | 原形：act",
+        meaning: "表演；演戏",
+        englishDef: "Performing a role in plays, films, or television shows.",
+        tip: "Edwina 从五岁就开始了她的演艺生涯（acting career），acting 就是“表演；演戏”！",
+        sentenceHTML: "Edwina started her <span class='blank-slot'>______</span> career (生涯) at the age of five.",
+        enOptions: ["acting", "chopping", "travelling", "vacuum"],
+        zhOptions: ["表演；演戏", "切碎", "旅行", "用吸尘器打扫"],
+        enDefOptions: [
+          "Performing a role in plays, films, or television shows.",
+          "Cutting vegetables into small pieces with a knife.",
+          "Going on a journey from place to place.",
+          "Cleaning carpets with a vacuum."
+        ]
+      },
+      {
+        id: "67", isGrammar: false, word: "builder",
+        meta: "Noun 职业名词 | build (建造) + er ➔ builder",
+        meaning: "建筑工人",
+        englishDef: "A person whose job is to construct or repair houses and buildings.",
+        tip: "build 是“建造”，加上 -er 变成建造房子的人，在建筑工地（construction site）工作的人就是“建筑工人”！",
+        sentenceHTML: "The <span class='blank-slot'>______</span> is busy working at the construction site (建筑工地).",
+        enOptions: ["builder", "manager", "writer", "artist"],
+        zhOptions: ["建筑工人", "经理", "作家", "艺术家"],
+        enDefOptions: [
+          "A person whose job is to construct or repair houses and buildings.",
+          "Someone in charge of a bank or shop.",
+          "Someone who writes books.",
+          "Someone who creates paintings."
+        ]
+      },
+      {
+        id: "68", isGrammar: false, word: "manager",
+        meta: "Noun 职业名词 | manage (管理) + r ➔ manager",
+        meaning: "经理",
+        englishDef: "A person who is responsible for running a bank, shop, or company.",
+        tip: "manage 是“管理”，加上 -r 变成管理者，在吉隆坡一家银行担任主管的人就是“经理”！",
+        sentenceHTML: "My brother works as a bank <span class='blank-slot'>______</span> in Kuala Lumpur.",
+        enOptions: ["manager", "builder", "soldier", "guide"],
+        zhOptions: ["经理", "建筑工人", "士兵", "导览员"],
+        enDefOptions: [
+          "A person who is responsible for running a bank, shop, or company.",
+          "A worker on a construction site.",
+          "A member of the army.",
+          "A tour leader."
+        ]
+      },
+      {
+        id: "69", isGrammar: false, word: "barbecue",
+        meta: "Noun 户外炊具 | 简称 BBQ",
+        meaning: "烤肉架",
+        englishDef: "A metal frame used for cooking meat and food outdoors over fire.",
+        tip: "爸爸和孩子们在户外围着炭火烤肉（cooking some meat），barbecue 就是“烤肉架”！",
+        sentenceHTML: "We are cooking some meat on the <span class='blank-slot'>______</span>.",
+        enOptions: ["barbecue", "calculator", "portrait", "carpet"],
+        zhOptions: ["烤肉架", "计算器", "肖像", "地毯"],
+        enDefOptions: [
+          "A metal frame used for cooking meat and food outdoors over fire.",
+          "A small electronic math tool.",
+          "A framed painting of a person.",
+          "A floor covering."
+        ]
+      },
+      {
+        id: "70", isGrammar: false, word: "chopping (chop)",
+        meta: "Verb 现在分词 | 原形：chop (双写 p 加 -ing)",
+        meaning: "切碎",
+        englishDef: "Cutting food such as vegetables into small pieces with a knife.",
+        tip: "妈妈在厨房（kitchen）用菜刀把蔬菜咔嚓咔嚓切成小块，chopping（原形 chop）就是“切碎”！",
+        sentenceHTML: "Mother is <span class='blank-slot'>______</span> vegetables (蔬菜) in the kitchen.",
+        enOptions: ["chopping", "acting", "dust", "stick"],
+        zhOptions: ["切碎", "表演；演戏", "清除或擦去灰尘", "粘贴"],
+        enDefOptions: [
+          "Cutting food such as vegetables into small pieces with a knife.",
+          "Performing in a play or movie.",
+          "Wiping dust off bookshelves.",
+          "Gluing pictures to a wall."
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 2. Unit Focus 两大语法闪卡与练习题 (Textbook pp. 22–23)
+    // =========================================================================
+    const UNIT2_GRAMMAR = [
+      {
+        id: "G1", isGrammar: true,
+        word: "Verb + '-er' ➔ Noun (teach ➔ teacher)",
+        meta: "Grammar 1 (p.22) | Making nouns from verbs by adding suffix '-er'",
+        meaning: "教师（动词 teach 加后缀 -er 变成表示职业的名词）",
+        englishDef: "A noun formed by adding '-er' to the verb 'teach', meaning a person who teaches.",
+        tip: "课本第22页重点！很多动词只要在词尾加上后缀 -er，就能变成“做这个动作的人”：teach (教) ➔ teacher (教师)；sing (唱) ➔ singer (歌手)；build (建造) ➔ builder (建筑工人)。",
+        sentenceHTML: "Mr Tan is a dedicated (敬业的) <span class='blank-slot'>______</span> who teaches Year 6 English.",
+        enOptions: ["teacher", "teach", "teaching", "taught"],
+        zhOptions: ["教师（动词 teach + -er 变职业名词）", "教（动词原形）", "正在教（现在分词）", "教过（过去式）"],
+        enDefOptions: [
+          "A noun formed by adding '-er' to the verb 'teach', meaning a person who teaches.",
+          "The base verb meaning to give lessons to students.",
+          "The continuous verb form of teach.",
+          "The past tense verb form of teach."
+        ]
+      },
+      {
+        id: "G2", isGrammar: true,
+        word: "Verb + '-er' ➔ Noun (sing ➔ singer)",
+        meta: "Grammar 2 (p.22) | Making nouns from verbs: sing (verb) ➔ singer (noun)",
+        meaning: "歌手（动词 sing 加后缀 -er 变成表示职业的名词）",
+        englishDef: "A noun formed by adding '-er' to the verb 'sing', meaning a person who sings.",
+        tip: "课本第22页第二幅图！sing 是动词“唱歌”，加上后缀 -er 变成 singer（歌手），在舞台上拿着麦克风唱歌的人！",
+        sentenceHTML: "The famous <span class='blank-slot'>______</span> performed (表演) on stage with a microphone.",
+        enOptions: ["singer", "sing", "sang", "sung"],
+        zhOptions: ["歌手（动词 sing + -er 变名词）", "唱歌（动词原形）", "唱过（过去式）", "唱过（过去分词）"],
+        enDefOptions: [
+          "A noun formed by adding '-er' to the verb 'sing', meaning a person who sings.",
+          "The base verb meaning to make musical sounds with the voice.",
+          "The simple past tense of sing.",
+          "The past participle of sing."
+        ]
+      },
+      {
+        id: "G3", isGrammar: true,
+        word: "Verb + '-or' ➔ Noun (act ➔ actor)",
+        meta: "Grammar 3 (p.22) | Making nouns from verbs by adding suffix '-or'",
+        meaning: "演员（动词 act 加后缀 -or 变成表示职业的名词）",
+        englishDef: "A noun formed by adding '-or' to the verb 'act', meaning a person who acts.",
+        tip: "课本第22页第三幅图！有些动词词尾加的是 -or 而不是 -er，一定要牢记：act (演戏) ➔ actor (演员)；direct (执导) ➔ director (导演)；invent (发明) ➔ inventor (发明家)！",
+        sentenceHTML: "He is a talented (有才华的) <span class='blank-slot'>______</span> who performs in historical (历史的) plays.",
+        enOptions: ["actor", "act", "acting", "acted"],
+        zhOptions: ["演员（动词 act + -or 变职业名词）", "演戏（动词原形）", "表演；正在演（动名词/分词）", "演过（过去式）"],
+        enDefOptions: [
+          "A noun formed by adding '-or' to the verb 'act', meaning a person who acts.",
+          "The base verb meaning to perform a role.",
+          "The -ing form of the verb act.",
+          "The past tense form of act."
+        ]
+      },
+      {
+        id: "G4", isGrammar: true,
+        word: "'Used to' + Verb (Affirmative 肯定句)",
+        meta: "Grammar 4 (p.23) | Past habits or actions that are no longer true now",
+        meaning: "过去常常（表示过去习惯做、但现在不再做的事情）",
+        englishDef: "Used to + base verb describes past habits or actions that no longer happen now.",
+        tip: "课本第23页第1点！肯定句用 used to + 动词原形，表示“以前常常做某事（现在不了）”：Rizal used to participate in debate competitions. / May Lee used to enjoy cooking and baking.",
+        sentenceHTML: "Rizal <span class='blank-slot'>______</span> participate (参加) in debate competitions (辩论比赛).",
+        enOptions: ["used to", "didn't use to", "use to", "using to"],
+        zhOptions: ["过去常常（肯定句 used to + 动词原形）", "过去不曾（否定句，句意不符）", "过去常常（缺少过去式字母 d）", "错误形式"],
+        enDefOptions: [
+          "Used to + base verb describes past habits or actions that no longer happen now.",
+          "Negative form meaning something did not happen in the past.",
+          "Incorrect affirmative form missing the past '-d'.",
+          "Grammatically incorrect form."
+        ]
+      },
+      {
+        id: "G5", isGrammar: true,
+        word: "'Didn't use to' + Verb (Negative 否定句)",
+        meta: "Grammar 5 (p.23) | Notice: didn't + use to (NO 'd' after didn't!)",
+        meaning: "过去不曾／以前没有（注意：didn't 后面用原形 use to，不加 d！）",
+        englishDef: "Didn't use to + base verb describes actions that did not happen in the past.",
+        tip: "课本第23页第2点超重要考点！否定句有了助动词 didn't，后面的 use 必须还原成原形 use to（绝对不能写成 didn't used to）：My father didn't use to drive to work.",
+        sentenceHTML: "My father <span class='blank-slot'>______</span> drive to work in the past.",
+        enOptions: ["didn't use to", "didn't used to", "used to", "don't use to"],
+        zhOptions: ["过去不曾（didn't 后接原形 use to，不加 d）", "错误拼写（didn't 后不能再加 d）", "过去常常（肯定句）", "现在不常（一般现在时）"],
+        enDefOptions: [
+          "Didn't use to + base verb describes actions that did not happen in the past.",
+          "Incorrect form because 'used' should drop the '-d' after 'didn't'.",
+          "Affirmative form for past habits.",
+          "Present simple negative form."
+        ]
+      },
+      {
+        id: "G6", isGrammar: true,
+        word: "'Did ... use to' (Questions 疑问句)",
+        meta: "Grammar 6 (p.23) | Did you use to watch TV? / Where did you use to live?",
+        meaning: "过去是否常常……（疑问句用 Did + 主语 + use to 原形）",
+        englishDef: "Did + subject + use to + base verb is used to ask about past habits.",
+        tip: "课本第23页第3–4点！疑问句开头借用助动词 Did，后面的 use 同样必须用原形 use to（不加 d）：Did you use to watch TV every night? / Where did you use to live?",
+        sentenceHTML: "<span class='blank-slot'>______</span> you use to help with the chores (家务)? Yes, I used to help.",
+        enOptions: ["Did", "Do", "Does", "Were"],
+        zhOptions: ["助动词 Did（过去疑问句：Did + 主语 + use to）", "助动词 Do（用于现在时）", "助动词 Does（用于第三人称单数现在时）", "Be动词 Were（不能与 use to 搭配）"],
+        enDefOptions: [
+          "Did + subject + use to + base verb is used to ask about past habits.",
+          "Auxiliary verb used for present simple questions.",
+          "Auxiliary verb used for third-person singular present questions.",
+          "Past verb 'to be' which cannot be used with 'use to'."
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 3. 全局状态管理
+    // =========================================================================
+    let studentName = "";
+    let studentClass = "6M";
+    let currentStageKey = "stage1";
+
+    let activeFlashcards = [];
+    let currentCardIdx = 0;
+    let learnedCardsSet = new Set();
+    let cardLockTimer = null;
+    let cardWaitSeconds = 5;
+
+    // 测验队列 (支持错题重新排入，直到 100% 掌握)
+    let quizQueue = [];
+    let currentQuestionObj = null;
+    let currentStep = 1; // 1: 选英文填句, 2: 选华语意思, 3: 选英文意思
+    let currentQuestionHadMistake = false;
+    let currentQuestionShielded = false;
+
+    let initialTotalQuestions = 0;
+    let masteredCount = 0;
+    let totalAttemptsCount = 0;
+    let consecutivePerfectCount = 0; // 每满 5 题触发 Bonus 技能奖励
+    let scorePoints = 0;
+    let doubleScoreCharges = 0; // 双倍积分剩余题数
+
+    // Bonus 技能背包
+    let bonusInventory = []; // { id, type, label, icon }
+
+    // 计时器状态
+    let preReadTimer = null;
+    let preReadSeconds = 5;
+    let isPreReadLocked = true;
+    let answerTimer = null;
+    let answerSecondsLeft = 30;
+
+    let reviewLog = [];
+
+    // =========================================================================
+    // 4. Web Audio API 背景音乐 + 倒计时最后 8 秒紧张变奏音效
+    // =========================================================================
+    let audioCtx = null;
+    let bgmOn = true;
+    let bgmTension = false;
+    let bgmTimer = null;
+    let melodyPos = 0;
+
+    const CALM_NOTES = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880.00, 698.46, 659.25, 783.99, 1046.50, 783.99, 587.33, 493.88, 523.25, 0];
+    const TENSION_NOTES = [440.00, 466.16, 440.00, 466.16, 523.25, 554.37, 523.25, 554.37];
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AC();
+      }
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+    }
+
+    function toggleBGM() {
+      initAudio();
+      bgmOn = !bgmOn;
+      const btn = document.getElementById("bgmBtn");
+      const icon = document.getElementById("bgmIcon");
+      const txt = document.getElementById("bgmText");
+
+      if (bgmOn) {
+        icon.textContent = "🎵";
+        txt.textContent = "背景音乐开";
+        btn.classList.replace("bg-gray-200", "bg-amber-100");
+        runBGMLoop();
+      } else {
+        icon.textContent = "🔇";
+        txt.textContent = "背景音乐关";
+        btn.classList.replace("bg-amber-100", "bg-gray-200");
+        clearTimeout(bgmTimer);
+      }
+    }
+
+    function setBGMTension(isUrgent) {
+      if (bgmTension === isUrgent) return;
+      bgmTension = isUrgent;
+      melodyPos = 0;
+      if (bgmOn) {
+        clearTimeout(bgmTimer);
+        runBGMLoop();
+      }
+    }
+
+    function runBGMLoop() {
+      if (!bgmOn) return;
+      try {
+        initAudio();
+        const scale = bgmTension ? TENSION_NOTES : CALM_NOTES;
+        const freq = scale[melodyPos % scale.length];
+        melodyPos++;
+        const interval = bgmTension ? 135 : 340;
+
+        if (freq > 0) {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = bgmTension ? "sawtooth" : "triangle";
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+          const vol = bgmTension ? 0.058 : 0.036;
+          gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (interval / 1000) * 0.88);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + (interval / 1000) * 0.9);
+        }
+        bgmTimer = setTimeout(runBGMLoop, interval);
+      } catch (e) {}
+    }
+
+    function playFeedbackTone(kind) {
+      try {
+        initAudio();
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        if (kind === "step_ok") {
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(587.33, now);
+          osc.frequency.setValueAtTime(783.99, now + 0.08);
+          gain.gain.setValueAtTime(0.13, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+          osc.start(now);
+          osc.stop(now + 0.22);
+        } else if (kind === "all_ok" || kind === "unlock" || kind === "bonus") {
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(659.25, now + 0.08);
+          osc.frequency.setValueAtTime(783.99, now + 0.16);
+          osc.frequency.setValueAtTime(1046.50, now + 0.24);
+          gain.gain.setValueAtTime(0.17, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.48);
+          osc.start(now);
+          osc.stop(now + 0.48);
+        } else if (kind === "wrong") {
+          osc.type = "sawtooth";
+          osc.frequency.setValueAtTime(210, now);
+          osc.frequency.linearRampToValueAtTime(135, now + 0.34);
+          gain.gain.setValueAtTime(0.14, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.36);
+          osc.start(now);
+          osc.stop(now + 0.36);
+        }
+      } catch (e) {}
+    }
+
+    // =========================================================================
+    // 5. 工具函数与关卡启动
+    // =========================================================================
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function formatChineseParentheses(htmlStr) {
+      return htmlStr.replace(/\(([^()]+)\)/g, `<span class="hint-cn">($1)</span>`);
+    }
+
+    function startStage(stageKey) {
+      currentStageKey = stageKey;
+      const rawName = document.getElementById("studentNameInput").value.trim();
+      studentName = rawName || "六年级小勇士";
+      studentClass = document.getElementById("studentClassInput").value;
+
+      if (stageKey === "stage1") {
+        activeFlashcards = UNIT2_VOCAB.slice(0, 18);
+      } else if (stageKey === "stage2") {
+        activeFlashcards = UNIT2_VOCAB.slice(18, 36);
+      } else if (stageKey === "stage3") {
+        activeFlashcards = UNIT2_VOCAB.slice(36, 54);
+      } else if (stageKey === "stage4") {
+        activeFlashcards = [...UNIT2_VOCAB.slice(54, 70), UNIT2_GRAMMAR[0], UNIT2_GRAMMAR[3]];
+      } else if (stageKey === "grammar") {
+        activeFlashcards = [...UNIT2_GRAMMAR];
+      } else {
+        // quick mix: 10 vocab + 2 grammar
+        const randVocab = shuffleArray(UNIT2_VOCAB).slice(0, 10);
+        const randGram = shuffleArray(UNIT2_GRAMMAR).slice(0, 2);
+        activeFlashcards = [...randVocab, ...randGram];
+      }
+
+      initAudio();
+      if (bgmOn) {
+        clearTimeout(bgmTimer);
+        runBGMLoop();
+      }
+
+      // 重置状态
+      currentCardIdx = 0;
+      learnedCardsSet.clear();
+      quizQueue = [];
+      masteredCount = 0;
+      totalAttemptsCount = 0;
+      consecutivePerfectCount = 0;
+      scorePoints = 0;
+      doubleScoreCharges = 0;
+      bonusInventory = [];
+      reviewLog = [];
+
+      updateScoreAndBonusUI();
+
+      document.getElementById("menuScreen").classList.add("hidden");
+      document.getElementById("bonusModal").classList.add("hidden");
+      document.getElementById("summaryModal").classList.add("hidden");
+      document.getElementById("gameWorkspace").classList.remove("hidden");
+      document.getElementById("homeBtn").classList.remove("hidden");
+
+      // 严格锁定右侧测验区
+      const lockCover = document.getElementById("quizLockCover");
+      lockCover.classList.remove("hidden", "opacity-0", "pointer-events-none");
+      document.getElementById("lockTotalCardsText").textContent = activeFlashcards.length;
+      document.getElementById("fcUnlockedHint").classList.add("hidden");
+
+      updateFlashcardProgressUI();
+      renderFlashcard(0);
+    }
+
+    function returnToMenu() {
+      clearInterval(cardLockTimer);
+      clearInterval(preReadTimer);
+      clearInterval(answerTimer);
+      setBGMTension(false);
+      document.getElementById("gameWorkspace").classList.add("hidden");
+      document.getElementById("bonusModal").classList.add("hidden");
+      document.getElementById("summaryModal").classList.add("hidden");
+      document.getElementById("homeBtn").classList.add("hidden");
+      document.getElementById("menuScreen").classList.remove("hidden");
+    }
+
+    // =========================================================================
+    // 6. 左侧 Flashcard 逻辑 (每张强制 5 秒学习)
+    // =========================================================================
+    function renderFlashcard(idx) {
+      const item = activeFlashcards[idx];
+      const total = activeFlashcards.length;
+
+      document.getElementById("fcCounterBadge").textContent = `${idx + 1} / ${total}`;
+      document.getElementById("fcNumTag").textContent = `#${item.id}`;
+      document.getElementById("fcMainTerm").textContent = item.word;
+      document.getElementById("fcMetaInfo").textContent = item.meta;
+      document.getElementById("fcChineseMeaning").textContent = item.meaning;
+      document.getElementById("fcEnglishDef").textContent = item.englishDef;
+      document.getElementById("fcMemoryTip").textContent = item.tip;
+
+      const cardBox = document.getElementById("flashcardCard");
+      const typeTag = document.getElementById("fcTypeTag");
+      const tipHeader = document.getElementById("fcTipHeader");
+
+      if (item.isGrammar) {
+        cardBox.classList.add("is-grammar");
+        typeTag.textContent = "🧠 Unit Focus 语法卡";
+        typeTag.className = "bg-purple-600 text-white text-xs font-black px-2.5 py-1 rounded-lg";
+        tipHeader.textContent = "语法规则与记忆法 (Grammar Method)：";
+      } else {
+        cardBox.classList.remove("is-grammar");
+        typeTag.textContent = "📖 Vocabulary 词汇";
+        typeTag.className = "bg-white/90 border border-amber-300 text-amber-900 text-xs font-extrabold px-2.5 py-1 rounded-lg";
+        tipHeader.textContent = "记忆华语意思小妙招 (Memory Method)：";
+      }
+
+      const answerHighlight = item.enOptions[0];
+      const completedSentence = item.sentenceHTML.replace(
+        "<span class='blank-slot'>______</span>",
+        `<span class="text-sky-700 underline decoration-wavy font-black px-1">${answerHighlight}</span>`
+      );
+      document.getElementById("fcSentence").innerHTML = formatChineseParentheses(completedSentence);
+
+      document.getElementById("fcPrevBtn").disabled = (idx === 0);
+
+      // 5 秒强制学习倒计时
+      clearInterval(cardLockTimer);
+      const nextBtn = document.getElementById("fcNextBtn");
+      const nextLabel = document.getElementById("fcNextLabel");
+
+      if (learnedCardsSet.has(idx)) {
+        nextBtn.disabled = false;
+        nextLabel.textContent = (idx === total - 1) ? "✅ 全部看完！解锁右边测验" : "下一张 ➡️";
+      } else {
+        cardWaitSeconds = 5;
+        nextBtn.disabled = true;
+        nextLabel.textContent = `⏳ 请仔细学习 (${cardWaitSeconds}s)`;
+
+        cardLockTimer = setInterval(() => {
+          cardWaitSeconds--;
+          nextLabel.textContent = `⏳ 请仔细学习 (${cardWaitSeconds}s)`;
+          if (cardWaitSeconds <= 0) {
+            clearInterval(cardLockTimer);
+            learnedCardsSet.add(idx);
+            updateFlashcardProgressUI();
+            nextBtn.disabled = false;
+            nextLabel.textContent = (idx === total - 1) ? "✅ 全部看完！解锁右边测验" : "下一张 ➡️";
+          }
+        }, 1000);
+      }
+    }
+
+    function prevFlashcard() {
+      if (currentCardIdx > 0) {
+        currentCardIdx--;
+        renderFlashcard(currentCardIdx);
+      }
+    }
+
+    function nextFlashcard() {
+      if (!learnedCardsSet.has(currentCardIdx)) return;
+      if (currentCardIdx < activeFlashcards.length - 1) {
+        currentCardIdx++;
+        renderFlashcard(currentCardIdx);
+      } else {
+        unlockRightQuizAndStart();
+      }
+    }
+
+    function updateFlashcardProgressUI() {
+      const done = learnedCardsSet.size;
+      const total = activeFlashcards.length;
+      const pct = Math.round((done / total) * 100);
+      document.getElementById("fcProgressBar").style.width = `${pct}%`;
+      document.getElementById("lockProgressText").textContent = `${done} / ${total}`;
+    }
+
+    function unlockRightQuizAndStart() {
+      const cover = document.getElementById("quizLockCover");
+      if (!cover.classList.contains("hidden")) {
+        playFeedbackTone("unlock");
+        cover.classList.add("opacity-0", "pointer-events-none");
+        setTimeout(() => cover.classList.add("hidden"), 350);
+        document.getElementById("fcUnlockedHint").classList.remove("hidden");
+
+        // 初始化测验队列
+        quizQueue = shuffleArray(activeFlashcards).map(item => ({
+          data: item,
+          isRetry: false
+        }));
+        initialTotalQuestions = quizQueue.length;
+        masteredCount = 0;
+
+        document.getElementById("totalGoalText").textContent = initialTotalQuestions;
+        updateMasteryProgressUI();
+        loadNextQuizQuestion();
+      }
+    }
+
+    // =========================================================================
+    // 7. 右侧 Quiz 三步闭环逻辑 + 5秒读题锁 + 30秒计时 + 错题重练 + Bonus技能
+    // =========================================================================
+    function updateMasteryProgressUI() {
+      document.getElementById("masteredCountText").textContent = masteredCount;
+      const retryPending = quizQueue.filter(q => q.isRetry).length;
+      const badge = document.getElementById("requeueBadge");
+      if (retryPending > 0) {
+        badge.classList.remove("hidden");
+        document.getElementById("requeueCountText").textContent = retryPending;
+      } else {
+        badge.classList.add("hidden");
+      }
+    }
+
+    function loadNextQuizQuestion() {
+      clearInterval(preReadTimer);
+      clearInterval(answerTimer);
+      setBGMTension(false);
+      document.getElementById("quizPanel").classList.remove("tension-border");
+
+      if (quizQueue.length === 0) {
+        showFinalSummary();
+        return;
+      }
+
+      currentQuestionObj = quizQueue.shift();
+      const item = currentQuestionObj.data;
+
+      currentStep = 1;
+      currentQuestionHadMistake = false;
+      currentQuestionShielded = false;
+      isPreReadLocked = true;
+
+      updateMasteryProgressUI();
+
+      // 显示是否为错题重练
+      const flagBadge = document.getElementById("mistakeFlagBadge");
+      if (currentQuestionObj.isRetry) {
+        flagBadge.classList.remove("hidden");
+        flagBadge.textContent = "🔁 错题重练挑战（本次全对即可消除错题）";
+      } else {
+        flagBadge.classList.add("hidden");
+      }
+
+      // 重置三步胶囊样式
+      setStepPillsUI(1);
+
+      // 渲染带括弧提示的句子
+      document.getElementById("promptHelperNote").textContent = item.isGrammar
+        ? "🧠 Unit Focus 语法填空（括弧内为较难字华语提示）："
+        : "💡 括弧内为较难英文字的华语意思，协助你理解句子：";
+      document.getElementById("quizQuestionBox").innerHTML = formatChineseParentheses(item.sentenceHTML);
+
+      // 渲染第一步英文选项并锁定 5 秒
+      renderQuizOptions(shuffleArray(item.enOptions), "en");
+      setOptionsDisabled(true);
+
+      start5SecPreReadLock();
+    }
+
+    function start5SecPreReadLock() {
+      clearInterval(preReadTimer);
+      preReadSeconds = 5;
+      isPreReadLocked = true;
+
+      const banner = document.getElementById("readWaitBanner");
+      const bannerTxt = document.getElementById("readWaitText");
+      banner.className = "bg-amber-50 border-2 border-amber-300 rounded-2xl px-4 py-2 mb-3 text-center";
+      bannerTxt.className = "text-xs sm:text-sm font-black text-amber-900";
+      bannerTxt.textContent = `⏳ 作答前请先仔细阅读句子和括弧提示（${preReadSeconds} 秒后解锁选项）...`;
+
+      document.getElementById("timerPhaseLabel").textContent = "👀 5秒读题准备...";
+      document.getElementById("timerPhaseLabel").className = "text-amber-700 font-black";
+      document.getElementById("timerValueText").textContent = `${preReadSeconds}s`;
+      document.getElementById("timerValueText").className = "text-sm sm:text-base text-amber-800 font-black";
+      document.getElementById("timerProgressBar").style.width = "100%";
+      document.getElementById("timerProgressBar").className = "h-full bg-amber-500 rounded-full transition-all duration-200";
+
+      document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-bold text-amber-700">请先认真读懂完整句子，5 秒后立即开启 30 秒作答时间 📖</span>`;
+
+      preReadTimer = setInterval(() => {
+        preReadSeconds--;
+        if (preReadSeconds > 0) {
+          bannerTxt.textContent = `⏳ 作答前请先仔细阅读句子和括弧提示（${preReadSeconds} 秒后解锁选项）...`;
+          document.getElementById("timerValueText").textContent = `${preReadSeconds}s`;
+          document.getElementById("timerProgressBar").style.width = `${(preReadSeconds / 5) * 100}%`;
+        } else {
+          clearInterval(preReadTimer);
+          isPreReadLocked = false;
+          setOptionsDisabled(false);
+
+          banner.className = "bg-emerald-50 border-2 border-emerald-300 rounded-2xl px-4 py-2 mb-3 text-center";
+          bannerTxt.className = "text-xs sm:text-sm font-black text-emerald-800";
+          bannerTxt.textContent = "✅ 选项已解锁！请在 30 秒内依次完成 3 个步骤！";
+
+          document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-black text-sky-700">第 1 步：请选出正确的英文字填入句子空格！</span>`;
+          start30SecAnswerCountdown();
+        }
+      }, 1000);
+    }
+
+    function start30SecAnswerCountdown() {
+      clearInterval(answerTimer);
+      answerSecondsLeft = 30;
+      updateAnswerCountdownUI(30);
+
+      answerTimer = setInterval(() => {
+        answerSecondsLeft--;
+        updateAnswerCountdownUI(answerSecondsLeft);
+
+        // 最后 8 秒：音乐切换紧张节奏 + 红色呼吸框
+        if (answerSecondsLeft <= 8 && answerSecondsLeft > 0) {
+          setBGMTension(true);
+          document.getElementById("quizPanel").classList.add("tension-border");
+        } else {
+          setBGMTension(false);
+          document.getElementById("quizPanel").classList.remove("tension-border");
+        }
+
+        if (answerSecondsLeft <= 0) {
+          clearInterval(answerTimer);
+          setBGMTension(false);
+          document.getElementById("quizPanel").classList.remove("tension-border");
+          handleTimeUp();
+        }
+      }, 1000);
+    }
+
+    function updateAnswerCountdownUI(sec) {
+      const displaySec = Math.max(0, sec);
+      const pct = Math.min(100, (displaySec / 30) * 100);
+      const bar = document.getElementById("timerProgressBar");
+      const valTxt = document.getElementById("timerValueText");
+      const phaseTxt = document.getElementById("timerPhaseLabel");
+
+      bar.style.width = `${pct}%`;
+      valTxt.textContent = `${displaySec}s`;
+
+      if (displaySec <= 8) {
+        bar.className = "h-full bg-rose-600 rounded-full transition-all duration-200";
+        valTxt.className = "text-sm sm:text-base text-rose-600 font-black animate-ping";
+        phaseTxt.textContent = "🚨 倒计时快结束啦！快选！";
+        phaseTxt.className = "text-rose-600 font-black";
+      } else if (displaySec <= 16) {
+        bar.className = "h-full bg-amber-500 rounded-full transition-all duration-200";
+        valTxt.className = "text-sm sm:text-base text-amber-700 font-black";
+        phaseTxt.textContent = "⏳ 抓紧时间完成三步...";
+        phaseTxt.className = "text-amber-700 font-black";
+      } else {
+        bar.className = "h-full bg-emerald-500 rounded-full transition-all duration-200";
+        valTxt.className = "text-sm sm:text-base text-emerald-700 font-black";
+        phaseTxt.textContent = "⏱️ 30秒作答倒计时";
+        phaseTxt.className = "text-emerald-700 font-black";
+      }
+    }
+
+    function handleTimeUp() {
+      const item = currentQuestionObj.data;
+      const correctEn = item.enOptions[0];
+      currentQuestionHadMistake = true;
+      playFeedbackTone("wrong");
+      setOptionsDisabled(true);
+
+      document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-black text-rose-600 animate-shake">⏰ 超过 30 秒未完成！正解：${correctEn} (${item.meaning}) — 已排入稍后重练队列</span>`;
+
+      totalAttemptsCount++;
+      consecutivePerfectCount = 0;
+      updateScoreAndBonusUI();
+
+      // 重新排入队列末尾，确保最终 100% 掌握
+      quizQueue.push({ data: item, isRetry: true });
+      reviewLog.push({
+        term: correctEn,
+        meaning: item.meaning,
+        isGrammar: item.isGrammar,
+        mastered: false,
+        note: "超时未完成，已排入重练"
+      });
+
+      setTimeout(loadNextQuizQuestion, 1400);
+    }
+
+    function setStepPillsUI(step) {
+      const p1 = document.getElementById("pillStep1");
+      const p2 = document.getElementById("pillStep2");
+      const p3 = document.getElementById("pillStep3");
+
+      const baseInactive = "px-2 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-gray-200 text-gray-500";
+      const baseActive = "px-2 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-sky-600 text-white shadow-sm animate-pop";
+      const baseDone = "px-2 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-emerald-500 text-white";
+
+      p1.className = step === 1 ? baseActive : baseDone;
+      p2.className = step === 2 ? baseActive : (step > 2 ? baseDone : baseInactive);
+      p3.className = step === 3 ? baseActive : baseInactive;
+    }
+
+    function setOptionsDisabled(disabled) {
+      document.querySelectorAll("#quizOptionsGrid button").forEach(btn => {
+        if (!btn.dataset.eliminated) {
+          btn.disabled = disabled;
+        }
+      });
+    }
+
+    function renderQuizOptions(optionsList, stepKind) {
+      const grid = document.getElementById("quizOptionsGrid");
+      grid.innerHTML = "";
+      const tags = ["A", "B", "C", "D"];
+      const badgeColor = stepKind === "en" ? "bg-sky-600" : (stepKind === "zh" ? "bg-rose-500" : "bg-indigo-600");
+
+      const item = currentQuestionObj.data;
+      const correctAnswerForStep = stepKind === "en"
+        ? item.enOptions[0]
+        : (stepKind === "zh" ? item.meaning : item.englishDef);
+
+      optionsList.forEach((optText, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "btn-3d option-btn p-3 sm:p-3.5 rounded-2xl text-left font-black text-sm sm:text-base flex items-center gap-2.5";
+        btn.dataset.value = optText;
+        btn.dataset.isCorrect = (optText.toLowerCase() === correctAnswerForStep.toLowerCase()) ? "true" : "false";
+        btn.innerHTML = `
+          <span class="w-7 h-7 rounded-xl ${badgeColor} text-white flex items-center justify-center text-xs font-black shrink-0">
+            ${tags[idx]}
+          </span>
+          <span class="leading-snug">${optText}</span>
+        `;
+        btn.onclick = () => onOptionClicked(optText, btn);
+        grid.appendChild(btn);
+      });
+    }
+
+    function markQuestionMistake() {
+      if (!currentQuestionHadMistake && !currentQuestionShielded) {
+        currentQuestionHadMistake = true;
+        const flagBadge = document.getElementById("mistakeFlagBadge");
+        flagBadge.classList.remove("hidden");
+        flagBadge.textContent = "⚠️ 本题出现失误，请继续完成剩余步骤，稍后将重新出现直到100%掌握";
+      }
+    }
+
+    function onOptionClicked(selectedVal, clickedBtn) {
+      if (isPreReadLocked) return;
+      const item = currentQuestionObj.data;
+      const correctEn = item.enOptions[0];
+
+      if (currentStep === 1) {
+        // 第 1 步：选英文字填入句子
+        const isRight = (selectedVal.toLowerCase() === correctEn.toLowerCase());
+        const slot = document.querySelector("#quizQuestionBox .blank-slot");
+
+        if (isRight) {
+          playFeedbackTone("step_ok");
+          if (slot) {
+            slot.textContent = correctEn;
+            slot.classList.add("filled-right");
+          }
+          document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-black text-emerald-700">✅ 第 1 步填词正确！现在进入第 2 步：选出 "${correctEn}" 的华语意思！</span>`;
+        } else {
+          playFeedbackTone("wrong");
+          markQuestionMistake();
+          if (slot) {
+            slot.innerHTML = `<span class="line-through opacity-75 mr-1">${selectedVal}</span> ➔ ${correctEn}`;
+            slot.classList.add("filled-wrong");
+          }
+          document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-black text-rose-700 animate-shake">❌ 填词错误（正解是 "${correctEn}"）！请继续完成第 2 步：选出 "${correctEn}" 的华语意思！</span>`;
+        }
+
+        // 进入第 2 步：选华语意思
+        currentStep = 2;
+        setStepPillsUI(2);
+        renderQuizOptions(shuffleArray(item.zhOptions), "zh");
+
+      } else if (currentStep === 2) {
+        // 第 2 步：选华语意思
+        const isRight = (selectedVal === item.meaning);
+
+        if (isRight) {
+          playFeedbackTone("step_ok");
+          document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-black text-emerald-700">✅ 第 2 步华语意思正确！现在进入第 3 步：选出 "${correctEn}" 的英文意思！</span>`;
+        } else {
+          playFeedbackTone("wrong");
+          markQuestionMistake();
+          document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-black text-rose-700 animate-shake">❌ 华语意思选错了（正解是 "${item.meaning}"）！请继续完成第 3 步：选出英文意思！</span>`;
+        }
+
+        // 进入第 3 步：选英文意思
+        currentStep = 3;
+        setStepPillsUI(3);
+        renderQuizOptions(shuffleArray(item.enDefOptions), "enDef");
+
+      } else if (currentStep === 3) {
+        // 第 3 步：选英文意思
+        const isRight = (selectedVal === item.englishDef);
+
+        if (!isRight) {
+          playFeedbackTone("wrong");
+          markQuestionMistake();
+        }
+
+        finalizeThreeStepQuestion(isRight);
+      }
+    }
+
+    function finalizeThreeStepQuestion(step3WasRight) {
+      clearInterval(answerTimer);
+      setBGMTension(false);
+      document.getElementById("quizPanel").classList.remove("tension-border");
+      setOptionsDisabled(true);
+
+      const item = currentQuestionObj.data;
+      const correctEn = item.enOptions[0];
+      totalAttemptsCount++;
+
+      const completelyClean = !currentQuestionHadMistake;
+
+      if (completelyClean) {
+        playFeedbackTone("all_ok");
+        masteredCount++;
+        consecutivePerfectCount++;
+
+        let earned = 10;
+        if (doubleScoreCharges > 0) {
+          earned = 20;
+          doubleScoreCharges--;
+        }
+        scorePoints += earned;
+
+        document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-sm sm:text-base font-black text-emerald-600 animate-pop">🌟 三步全部一次全对！+${earned} 分 (${correctEn} = ${item.meaning})</span>`;
+
+        reviewLog.push({
+          term: correctEn,
+          meaning: item.meaning,
+          isGrammar: item.isGrammar,
+          mastered: true,
+          note: `完全掌握 (+${earned}分)`
+        });
+
+        updateMasteryProgressUI();
+        updateScoreAndBonusUI();
+
+        // 检查是否满 5 题触发 Bonus 技能奖励
+        if (consecutivePerfectCount > 0 && consecutivePerfectCount % 5 === 0 && quizQueue.length > 0) {
+          setTimeout(() => {
+            playFeedbackTone("bonus");
+            document.getElementById("bonusModal").classList.remove("hidden");
+          }, 950);
+          return;
+        }
+      } else {
+        // 本题有错：重新排入队列后面（随机插入在接下来的 2-4 题之后或末尾），确保 100% 掌握
+        consecutivePerfectCount = 0;
+        updateScoreAndBonusUI();
+
+        const insertPos = Math.min(quizQueue.length, Math.floor(Math.random() * 3) + 2);
+        quizQueue.splice(insertPos, 0, { data: item, isRetry: true });
+        updateMasteryProgressUI();
+
+        const reason = step3WasRight
+          ? `前两步曾有误，已重新排入队列稍后重练`
+          : `第 3 步英文意思误选，已重新排入队列稍后重练`;
+
+        document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-black text-rose-600 animate-shake">🔁 本题未达到全对（正解：${correctEn} = ${item.meaning}），已重新排入队列！</span>`;
+
+        reviewLog.push({
+          term: correctEn,
+          meaning: item.meaning,
+          isGrammar: item.isGrammar,
+          mastered: false,
+          note: reason
+        });
+      }
+
+      setTimeout(loadNextQuizQuestion, 1350);
+    }
+
+    // =========================================================================
+    // 8. 每答对 5 题 Bonus 技能奖励与背包使用逻辑
+    // =========================================================================
+    function claimBonusSkill(skillType) {
+      const skillMeta = {
+        time: { type: "time", icon: "⏰", label: "+15秒延时" },
+        hint: { type: "hint", icon: "💡", label: "排除2错项" },
+        double: { type: "double", icon: "✨", label: "2x双倍积分" },
+        shield: { type: "shield", icon: "🔄", label: "错题护盾" }
+      };
+      const chosen = skillMeta[skillType];
+      bonusInventory.push({
+        id: Date.now() + Math.random(),
+        ...chosen
+      });
+
+      document.getElementById("bonusModal").classList.add("hidden");
+      updateScoreAndBonusUI();
+      loadNextQuizQuestion();
+    }
+
+    function useBonusSkill(skillId) {
+      const idx = bonusInventory.findIndex(s => s.id === skillId);
+      if (idx === -1) return;
+      const skill = bonusInventory[idx];
+
+      if (skill.type === "time") {
+        if (isPreReadLocked) {
+          showToastInFeedback("⚠️ 请等 5 秒读题锁结束进入 30 秒倒计时后再使用延时卡！");
+          return;
+        }
+        answerSecondsLeft += 15;
+        updateAnswerCountdownUI(answerSecondsLeft);
+        if (answerSecondsLeft > 8) {
+          setBGMTension(false);
+          document.getElementById("quizPanel").classList.remove("tension-border");
+        }
+        playFeedbackTone("bonus");
+        showToastInFeedback("⏰ 使用成功！作答时间已延长 +15 秒！");
+      } else if (skill.type === "hint") {
+        if (isPreReadLocked) {
+          showToastInFeedback("⚠️ 请等选项解锁后再使用智能提示卡！");
+          return;
+        }
+        const wrongBtns = Array.from(document.querySelectorAll("#quizOptionsGrid button")).filter(
+          b => b.dataset.isCorrect === "false" && !b.dataset.eliminated
+        );
+        if (wrongBtns.length === 0) {
+          showToastInFeedback("💡 当前步骤已没有可排除的错误选项啦！");
+          return;
+        }
+        shuffleArray(wrongBtns).slice(0, 2).forEach(b => {
+          b.dataset.eliminated = "true";
+          b.disabled = true;
+          b.classList.add("opacity-30", "line-through");
+        });
+        playFeedbackTone("bonus");
+        showToastInFeedback("💡 智能提示卡生效！已帮你排除 2 个错误选项！");
+      } else if (skill.type === "double") {
+        doubleScoreCharges += 3;
+        playFeedbackTone("bonus");
+        showToastInFeedback("✨ 分数翻倍卡激活！接下来 3 道全对题目将获得双倍积分！");
+      } else if (skill.type === "shield") {
+        // 如果当前题目刚犯错，立即豁免恢复；否则消除队列中 1 道待重练错题
+        if (currentQuestionHadMistake) {
+          currentQuestionHadMistake = false;
+          currentQuestionShielded = true;
+          document.getElementById("mistakeFlagBadge").textContent = "🛡️ 错题护盾已生效！本题失误已豁免！";
+          document.getElementById("mistakeFlagBadge").className = "bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-black px-2 py-0.5 rounded-lg";
+          playFeedbackTone("bonus");
+          showToastInFeedback("🔄 错题护盾使用成功！当前题目的失误已被完美豁免！");
+        } else {
+          const retryIdx = quizQueue.findIndex(q => q.isRetry);
+          if (retryIdx !== -1) {
+            const removed = quizQueue.splice(retryIdx, 1)[0];
+            masteredCount++;
+            updateMasteryProgressUI();
+            playFeedbackTone("bonus");
+            showToastInFeedback(`🔄 错题护盾使用成功！已直接攻克重练错题 "${removed.data.enOptions[0]}"！`);
+          } else {
+            currentQuestionShielded = true;
+            playFeedbackTone("bonus");
+            showToastInFeedback("🛡️ 护盾已开启！本题若不小心答错将自动免疫重练！");
+          }
+        }
+      }
+
+      bonusInventory.splice(idx, 1);
+      updateScoreAndBonusUI();
+    }
+
+    function showToastInFeedback(msg) {
+      document.getElementById("quizFeedbackArea").innerHTML = `<span class="text-xs sm:text-sm font-black text-indigo-700 animate-pop">${msg}</span>`;
+    }
+
+    function updateScoreAndBonusUI() {
+      document.getElementById("scorePointsText").textContent = scorePoints;
+      const modStreak = consecutivePerfectCount % 5;
+      document.getElementById("streakCountText").textContent = (consecutivePerfectCount > 0 && modStreak === 0) ? 5 : modStreak;
+
+      const dblBadge = document.getElementById("doubleScoreIndicator");
+      if (doubleScoreCharges > 0) {
+        dblBadge.classList.remove("hidden");
+        document.getElementById("doubleChargesLeft").textContent = doubleScoreCharges;
+      } else {
+        dblBadge.classList.add("hidden");
+      }
+
+      const bar = document.getElementById("bonusInventoryBar");
+      bar.innerHTML = "";
+      if (bonusInventory.length === 0) {
+        bar.innerHTML = `<span class="text-xs font-bold text-gray-400 italic">暂无技能，全对 5 题即可抽取！</span>`;
+      } else {
+        bonusInventory.forEach(skill => {
+          const btn = document.createElement("button");
+          btn.className = "btn-3d bg-white hover:bg-amber-100 border-2 border-amber-400 shadow-[0_2px_0_#D97706] text-amber-950 text-xs font-black px-2.5 py-1 rounded-xl flex items-center gap-1 animate-pop";
+          btn.innerHTML = `<span>${skill.icon}</span><span>${skill.label}</span>`;
+          btn.onclick = () => useBonusSkill(skill.id);
+          bar.appendChild(btn);
+        });
+      }
+    }
+
+    // =========================================================================
+    // 9. 100% 掌握通关成绩单弹窗
+    // =========================================================================
+    function showFinalSummary() {
+      clearInterval(preReadTimer);
+      clearInterval(answerTimer);
+      setBGMTension(false);
+      playFeedbackTone("unlock");
+
+      document.getElementById("summaryStudentMeta").textContent = `学生：${studentName} (${studentClass}) | Year 6 English • Unit 2: Life in the Past`;
+      document.getElementById("sumTotalScore").textContent = `${scorePoints} 分`;
+      document.getElementById("sumTotalAttempts").textContent = `${totalAttemptsCount} 轮`;
+
+      const listBox = document.getElementById("sumReviewList");
+      listBox.innerHTML = "";
+      reviewLog.forEach((entry, idx) => {
+        const gramTag = entry.isGrammar
+          ? `<span class="bg-purple-200 text-purple-900 px-1.5 py-0.5 rounded font-black mr-1">Grammar</span>`
+          : "";
+
+        const row = document.createElement("div");
+        row.className = `p-2 rounded-xl border flex flex-wrap items-center justify-between gap-2 ${
+          entry.mastered ? "bg-emerald-50 border-emerald-200 text-emerald-900" : "bg-amber-50 border-amber-200 text-amber-900"
+        }`;
+        row.innerHTML = `
+          <span>${gramTag}<strong>第 ${idx + 1} 轮：</strong>${entry.term} (${entry.meaning})</span>
+          <span class="font-black">${entry.mastered ? "✅ " + entry.note : "🔁 " + entry.note}</span>
+        `;
+        listBox.appendChild(row);
+      });
+
+      document.getElementById("summaryModal").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
